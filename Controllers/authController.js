@@ -1,5 +1,4 @@
-const registerController = () => {
+export const registerController = () => {
 
 };
 
-module.exports = {registerController};
