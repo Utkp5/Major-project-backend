@@ -36,6 +36,15 @@ app.get("/", function (req, res) {
 
 
 
+//User routes
+const authRoute = require("./Routes/authRoute");
+app.use("/api",authRoute);
+
+
+
+
+
+
 app.listen(PORT, function (error) {
   if (error) {
     console.log(`Error in starting server`);
