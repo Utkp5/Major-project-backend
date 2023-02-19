@@ -1,5 +1,9 @@
 import userModel from "../Models/user.js";
 import { comparePassword, hashPassword } from "../Helpers/authHelper.js";
+import EmailValidator from "emailvalidator";
+
+
+//Registration logic
 
 export const registerController = async (req,res) => {
 
@@ -9,22 +13,31 @@ export const registerController = async (req,res) => {
 
         //validations
         if (!firstName) {
-          return res.send({ error: "firstName is Required" });
+          return res.status(400).send({ error: "firstName is Required" });
         }
         if (!lastName) {
-          return res.send({ error: "lastName is Required" });
+          return res.status(400).send({ error: "lastName is Required" });
+        }
+        if (firstName === lastName) {
+          return res.status(400).send('firstname and lastname should not same')
+        }
+        if (!EmailValidator.validate(Email)) {
+          return res.status(400).send({ error: "Email is not correct" });
         }
         if (!Email) {
-          return res.send({ error: "Email is Required" });
+          return res.status(400).send({ error : 'Email is required'})
         }
         if (!password) {
-          return res.send({ error: "Password is Required" });
+          return res.status(400).send({ error: "Password is Required" });
         }
-        if (!phone) {
-          return res.send({ error: "Phone no is Required" });
+        if (password.length < 8) {
+          return res.status(400).send('Password should have min 8 characters');
+        }
+        if (!phone || phone.length > 10 ) {
+          return res.status(400).send({ error: "Phone no is Required or you have typed wrong phone number" });
         }
         if (!address) {
-          return res.send({ error: "Address is Required" });
+          return res.status(400).send({ error: "Address is Required" });
         }
     
         //check user
