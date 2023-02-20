@@ -4,7 +4,6 @@ import emailValidator from "email-validator";
 
 
 //Registration logic
-
 export const registerController = async (req,res) => {
 
     try {
