@@ -1,7 +1,7 @@
 import userModel from "../Models/user.js";
 import { comparePassword, hashPassword } from "../Helpers/authHelper.js";
 import emailValidator from "email-validator";
-
+import  Jwt  from "jsonwebtoken";
 
 //Registration logic
 export const registerController = async (req,res) => {
@@ -82,4 +82,72 @@ export const registerController = async (req,res) => {
         });
     }
 
+};
+
+
+//Login
+
+export const loginController = async (req,res) => {
+
+  try {
+
+    const { Email, password } = req.body;
+
+    if (!Email || !password) {
+      return res.status(404).send({
+        success: false,
+        message: "Invalid email or password",
+      });
+    }
+
+    //check user already exists
+    const user = await userModel.findOne({ Email });
+    if (!user) {
+      return res.status(404).send({
+        success: false,
+        message: "Email is not registerd",
+      });
+    }
+    const match = await comparePassword(password, user.password);
+    if (!match) {
+      return res.status(200).send({
+        success: false,
+        message: "Invalid Password",
+      });
+    }
+    //token
+    const token = await Jwt.sign({ _id: user._id }, process.env.JWT_SECRET, { expiresIn: "7d",});
+    res.status(200).send({
+      success: true,
+      message: "login successfully",
+      user: {
+        _id: user._id,
+        name: user.name,
+        email: user.Email,
+      },
+      token,
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error in login",
+      error,
+    });
+
+  }
+
+};
+
+
+//test for protected routes
+export const testController = (req,res) => {
+
+  try {
+    res.send("Protected Routes");
+
+  } catch (error) {
+    return res.status(500).send(error)
+  }
+  
 };
