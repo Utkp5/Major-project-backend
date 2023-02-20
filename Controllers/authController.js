@@ -1,6 +1,6 @@
 import userModel from "../Models/user.js";
 import { comparePassword, hashPassword } from "../Helpers/authHelper.js";
-import EmailValidator from "emailvalidator";
+import emailValidator from "email-validator";
 
 
 //Registration logic
@@ -21,7 +21,7 @@ export const registerController = async (req,res) => {
         if (firstName === lastName) {
           return res.status(400).send('firstname and lastname should not same')
         }
-        if (!EmailValidator.validate(Email)) {
+        if (!emailValidator.validate(Email)) {
           return res.status(400).send({ error: "Email is not correct" });
         }
         if (!Email) {
