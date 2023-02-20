@@ -32,8 +32,11 @@ export const registerController = async (req,res) => {
         if (password.length < 8) {
           return res.status(400).send('Password should have min 8 characters');
         }
-        if (!phone || phone.length > 10 ) {
+        if (!phone) {
           return res.status(400).send({ error: "Phone no is Required or you have typed wrong phone number" });
+        }
+        if (phone.length < 10  || phone.length > 10 ) {
+          return res.status(400).send({ error: "You have typed wrong phone number" });
         }
         if (!address) {
           return res.status(400).send({ error: "Address is Required" });
