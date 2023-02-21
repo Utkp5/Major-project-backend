@@ -1,0 +1,70 @@
+.menu_icon
+{
+    display: none;
+}
+
+@media screen and  (max-width:750px) {
+    .logo
+    {
+        display: flex;
+        position: absolute;
+        top: 25px;
+        left: 6px;
+    }
+    .navbar_ul
+    {
+        display: none;
+    }
+    .navbar_mobile_css
+    {
+        position: absolute;
+        display: block;
+        z-index: 10;
+        background-color: #242424;
+        list-style: none;
+        left: 0;
+        top: 63px;
+        text-align: center;
+        /* animation: slider 1s 1 forward ease-in; */
+        animation-name: slider;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        width: 100%;
+    }
+    @keyframes slider {
+        from {
+          transform: translateY(-15px)
+        }
+        to {
+          transform: translateY(0px);
+        }
+      }
+    li
+    {
+        padding: 3vh 0vw;
+        width: 80vw;
+    }
+    .menu_icon
+    {
+        display: block;
+        position: absolute;
+        top: 22px;
+        right: 12px;
+        transition: all 0.5s ease-in-out;
+    }
+    .navbar_button 
+    {
+        font-size: 2.5vh;
+    }
+    #a
+    {
+        font-size: 2.5vh;
+    }
+    
+}
+@media screen and  (max-width:425px) {
+    .navbar
+    {
+        height: 10vh;
+    }
+}

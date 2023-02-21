@@ -1,16 +1,44 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
+import "./Navbar.css";
 
 
 function Navbar() {
+
+  const  [inout,setinout] = useState();
+   const [menu,setmenu] = useState(false);
+   const [inoutDirection, setDirection] = useState("/Signin");
+    
+   useEffect(() => {
+    let tokenval = localStorage.getItem("token");
+
+    if (tokenval) {
+      setinout("Logout")
+      setDirection("/")
+    }
+    else
+    {
+      setinout("Sigin");
+      setDirection("/Signin");
+    }
+   },[])
+
+   const Handlechange = () => {
+    let tokenval = localStorage.getItem("token");
+    if (tokenval) {
+      localStorage.removeItem("token");
+    }
+   }
+
+
+
+
   return (
     <div className='navbar'>
 
-      <div className='b_name'></div>
+      <div className='b_name'>HIDDEN BRAND</div>
 
-      <ul>
-        <li><NavLink to="/">Home</NavLink></li>
-      </ul>
+      
 
       <ul className={menu ? 'navbar_mobile_css' : 'navbar_ul'}>
         <li> <NavLink to="/">Home</NavLink> </li>
@@ -29,7 +57,7 @@ function Navbar() {
         {menu ? <HiX size={26} color="white"/> :<HiMenu size={26} color="white"/>}
       </div> 
 
-      
+
     </div>
   )
 }
