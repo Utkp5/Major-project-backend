@@ -1,3 +1,36 @@
+.navbar
+{
+    border: 2px solid;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 10vh;
+}
+.navbar_ul
+{
+    list-style: none;
+    display: flex;
+}
+#a
+{
+    margin: 15px 30px;
+    font-size: 4vh;
+    text-decoration: none;
+}
+.b_name
+{
+    margin-left: 15px;
+}
+.navbar_button
+{
+    cursor: pointer;
+    font-size: 4vh;
+    background: transparent;
+    border: none;
+    margin: 0px 25px;
+}
+
+
 .menu_icon
 {
     display: none;

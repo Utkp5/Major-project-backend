@@ -1,6 +1,8 @@
-import React from 'react'
-import { NavLink } from 'react-router-dom'
+import React, { useState, useEffect } from "react";
 import "./Navbar.css";
+import { NavLink } from 'react-router-dom'
+import { HiMenu } from "react-icons/hi";
+import { HiX } from "react-icons/hi";
 
 
 function Navbar() {
@@ -41,8 +43,8 @@ function Navbar() {
       
 
       <ul className={menu ? 'navbar_mobile_css' : 'navbar_ul'}>
-        <li> <NavLink to="/">Home</NavLink> </li>
-        <li> <NavLink to="/About">About</NavLink> </li>
+        <li> <NavLink to="/" id="a" >Home</NavLink> </li>
+        <li> <NavLink to="/About" id="a" >About</NavLink> </li>
         <li><NavLink to="/Contact" id="a" >Contact</NavLink></li>
         {!localStorage.getItem("token")? // ye command signup button ko hide krne ke liye hai.
         <li><NavLink to="/Signup" className="signin_button"><button className="navbar_button" >Sign up</button></NavLink></li>
@@ -51,6 +53,7 @@ function Navbar() {
         <li><NavLink to={inoutDirection} className="signin_button"><button className="navbar_button" onClick={() => {
         Handlechange();
         }}>{inout}</button></NavLink></li>
+        <li><NavLink to="/Cart" id="a">Cart(0)</NavLink></li>
       </ul>
 
       <div className="menu_icon" onClick={() => setmenu(!menu)}>
