@@ -1,13 +1,13 @@
 .footer {
     align-items: center;
     background-color: #242424;
-    bottom: 0;
+    /* bottom: 0; */
     color: lavender;
     display: flex;
     font-size: 20px;
     height: 290px;
     justify-content: center;
-    position: fixed;
+    /* position: fixed; */
     width: 100%;
     font-family: 'Poppins', sans-serif;
     z-index: 1;
