@@ -1,6 +1,11 @@
 import React from "react";
 import "./Footer.css";
 import { NavLink } from "react-router-dom";
+import { FaFacebookSquare } from "react-icons/fa";
+import { FaTwitterSquare } from "react-icons/fa";
+import { FaLinkedin } from "react-icons/fa";
+import { FaInstagramSquare } from "react-icons/fa";
+
 
 function Footer() {
   return (
@@ -11,10 +16,10 @@ function Footer() {
           <h3 className="fo_h3">Connect</h3>
           <p><i className="fa fa-map-marker" aria-hidden="true"></i>Burari, Sant Nagar Delhi-84 India</p>
           <div className="social">
-            <i className="fa fa-facebook-square fo_i" ></i>
-            <i className="fa fa-twitter-square fo_i" ></i>
-            <i className="fa fa-linkedin-square fo_i" ></i>
-            <i className="fa fa-instagram fo_i" ></i>
+            <FaFacebookSquare color="lavender" size={32} className="fo_icon"/>
+            <FaTwitterSquare color="lavender" size={32} className="fo_icon"/>
+            <FaLinkedin color="lavender" size={32} className="fo_icon"/>
+            <FaInstagramSquare color="lavender" size={32} className="fo_icon"/>
           </div>
         </div>
 
@@ -32,7 +37,25 @@ function Footer() {
           <h3 className="fo_h3">Newsletter</h3>
           <div><input className="fo_input" type="email" placeholder="Your email id here" /><button className="fo_btn">Subscribe</button></div>
         </div>
+
+        <div className="copyright">
+        <div className="fo_menu">
+            <div className="fo_menu_sub">
+            <NavLink className="fo_menu_nav" to="/">Home</NavLink>
+            <NavLink className="fo_menu_nav" to="/">F.A.Q</NavLink>
+            <NavLink className="fo_menu_nav" to="/">Cookies Policy</NavLink>
+            <NavLink className="fo_menu_nav" to="/">Terms Of Service</NavLink>
+            <NavLink className="fo_menu_nav" to="/Contact">Support</NavLink>
+            </div>
+            <p className="fo_p">Copyright &copy; 2023 Pandit Utkarsh</p>
+         </div>
+        </div>
+
       </div>
+
+      
+
+
 
     </div>
   );
