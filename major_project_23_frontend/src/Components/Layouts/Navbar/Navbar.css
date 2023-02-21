@@ -1,35 +1,51 @@
 .navbar
 {
-    border: 2px solid;
     display: flex;
     justify-content: space-between;
     align-items: center;
     height: 10vh;
+    background-color: #242424;
+    /* font-family: 'Poppins', sans-serif; */
+    font-family: 'Roboto', sans-serif;
 }
 .navbar_ul
 {
     list-style: none;
     display: flex;
+    align-items: center;
 }
 #a
 {
+    color: lavender;
     margin: 15px 30px;
-    font-size: 4vh;
+    font-size: 3.5vh;
     text-decoration: none;
 }
 .b_name
 {
     margin-left: 15px;
+    color: lavender;
 }
 .navbar_button
 {
     cursor: pointer;
-    font-size: 4vh;
+    font-size: 3.5vh;
     background: transparent;
-    border: none;
+    color: lavender;
+    font-family: 'Roboto', sans-serif;
     margin: 0px 25px;
+    border: 2px solid gray;
+    padding: 5px 14px;
 }
 
+#a:hover{
+    color: darkorange;
+    transition: all 0.8s;
+}
+.navbar_button:hover {
+    color: darkorange;
+    transition: all 0.8s;
+} 
 
 .menu_icon
 {
