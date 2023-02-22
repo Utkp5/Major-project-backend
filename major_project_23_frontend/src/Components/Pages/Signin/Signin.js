@@ -1,17 +1,42 @@
 import React, { useState } from "react";
 import Layout from "../../Layouts/Layout/Layout";
 import "./Signin.css"
-import { NavLink } from "react-router-dom";
+import { useNavigate, NavLink } from "react-router-dom";
 import img2 from "../Assets/login.avif";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 
 
 function Signin() {
 
-  const [userEmail,setuserEmail] = useState();
+  const [Email,setEmail] = useState();
   const [password,setpassword] = useState();
 
-  const handleSubmitlogin = async () => {
+  const Navigate = useNavigate()
+
+
+  const handleSubmitlogin = async (e) => {
+
+    try {
+      
+      const user = {Email,password}
+
+      const res = await axios.post('http://localhost:5000/api/Login',user)
+
+      if (res && res.data.success) {
+        toast.success(res.data && res.data.message);
+        Navigate('/');
+      }
+      else {
+        toast.error(res.data.message);
+      }
+
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong")
+    }
+
 
   }
 
@@ -28,12 +53,12 @@ function Signin() {
             <p className="sgnin_p">Enter The Information You Entered while Registering!</p>
             <div className="signinform">
             <input className="input_signin" type="email" name="userEmail" placeholder="E-mail Address" onChange={(e) => {
-              setuserEmail(e.target.value);
-            }} />
+              setEmail(e.target.value);
+            }} required/>
             <br />
             <input className="input_signin" type="password" name="password" placeholder="Password" onChange={(e) => {
               setpassword(e.target.value);
-            }} />
+            }} required/>
             <div class="remember_form">
               <NavLink to="/Forgotpassword" className="signin_nav">Forgot Password ?</NavLink>            
             </div>

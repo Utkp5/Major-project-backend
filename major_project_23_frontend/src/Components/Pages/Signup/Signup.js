@@ -30,7 +30,7 @@ function Signup() {
       if(res && res.data.success) 
       {
         toast.success(res.data && res.data.message);
-        Navigate("/Login")
+        Navigate("/Signin")
       }
       else {
         toast.error(res.data.message);
