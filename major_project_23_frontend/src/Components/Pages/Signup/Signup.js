@@ -2,20 +2,43 @@ import React from 'react'
 import Layout from "../../Layouts/Layout/Layout.js";
 import "./Signup.css";
 import { useState } from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import gif from "../Assets/signup.gif";
+import axios from 'axios';
+import { toast } from 'react-hot-toast';
 
 function Signup() {
 
   const [firstName,setfirstName] = useState();
   const [lastName,setlastName] = useState();
-  const [userEmail,setuserEmail] = useState();
+  const [Email,setEmail] = useState();
   const [password,setpassword] = useState();
   const [phone,setphone] = useState();
   const [address,setaddress] = useState();
 
+  const Navigate = useNavigate()
 
-  const handleSubmit = async () => {
+
+  const handleSubmit = async (e) => {
+
+
+    try {
+
+      const user = {firstName,lastName,Email,password,phone,address};
+
+      const res =  await axios.post('http://localhost:5000/api/Register',user)
+      if(res && res.data.success) 
+      {
+        toast.success(res.data && res.data.message);
+        Navigate("/Login")
+      }
+      else {
+        toast.error(res.data.message);
+      }
+      
+    } catch (error) {
+      toast.error("Something went wrong")      
+    }
 
   }
 
@@ -35,12 +58,12 @@ function Signup() {
               <input className="input_signup" type="text" name="firstName" placeholder="First Name" onChange={(e) => {
                 setfirstName(e.target.value)
               }} />
-              <input className="input_signup" id="input_signup" type="text"name="lastName"  placeholder="Last Name" onChange={(e) => {
+              <input className="input_signup" id="input_signup" type="text" name="lastName"  placeholder="Last Name" onChange={(e) => {
                 setlastName(e.target.value)
               }} />
               <br />
               <input className="input_signup" type="email" name="userEmail" placeholder="E-mail Address" onChange={(e) => {
-                setuserEmail(e.target.value)
+                setEmail(e.target.value)
               }} />
               <input className="input_signup" id="input_passwd" type="password" name="password" placeholder="Password" onChange={(e) => {
                 setpassword(e.target.value)
