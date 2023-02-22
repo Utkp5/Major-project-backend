@@ -17,7 +17,7 @@ function Signin() {
 
 
   return (
-    <Layout>
+    <Layout title={'Hidden Brands - Signin'}>
 
     <div class="parent1">
             <img src={img2} alt="logo" className="signin_gif"/>

@@ -3,7 +3,7 @@ import Layout from '../../Layouts/Layout/Layout'
 
 function Category() {
   return (
-    <Layout>
+    <Layout title={'Hidden Brands - Category'}>
       category
     </Layout>
   )

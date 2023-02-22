@@ -3,7 +3,7 @@ import Layout from '../../Layouts/Layout/Layout'
 
 function About() {
   return (
-    <Layout>
+    <Layout title={'Hidden Brands - About'}>
       about
     </Layout>
   )

@@ -11,7 +11,7 @@ function Contact() {
 
 
   return (
-    <Layout>
+    <Layout title={'Hidden Brands - Contact'}>
 
       <div id="cont_div">
         <img src="" alt="" className="cont_banner" />

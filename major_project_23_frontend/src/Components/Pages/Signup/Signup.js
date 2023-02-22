@@ -21,7 +21,7 @@ function Signup() {
 
 
   return (
-    <Layout>
+    <Layout title={'Hidden Brands - Signup'}>
     
           <div class="parent">
 

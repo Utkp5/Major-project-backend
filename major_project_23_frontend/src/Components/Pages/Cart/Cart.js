@@ -3,7 +3,7 @@ import Layout from '../../Layouts/Layout/Layout'
 
 function Cart() {
   return (
-    <Layout>
+    <Layout title={'Hidden Brands - Your Cart'}>
       cart
     </Layout>
   )
