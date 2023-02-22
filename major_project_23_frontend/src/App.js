@@ -11,6 +11,7 @@ const Signup = lazy(() => import('./Components/Pages/Signup/Signup'));
 const Signin = lazy(() => import('./Components/Pages/Signin/Signin'));
 const Cart = lazy(() => import('./Components/Pages/Cart/Cart'));
 const Profile = lazy(() => import('./Components/Pages/Profile/Profile'));
+const Category = lazy(() => import('./Components/Pages/Category/Category'));
 const Pagenotfound = lazy(() => import('./Components/Pages/Pagenotfound'));
 
 function App() {
@@ -23,9 +24,12 @@ function App() {
           <Route  exact path='/About' element={<About />}/>   
           <Route  exact path='/Contact' element={<Contact />}/>   
           <Route  exact path='/Signup' element={<Signup />}/>   
-          <Route  exact path='/Signin' element={<Signin />}/>   
+          <Route  exact path='/Signin' element={<Signin />}/>  
+          <Route  exact path='/Cart' element={<Cart />}/>   
+          <Route  exact path='/Category' element={<Category />}/>   
           <Route  exact path='/Profile' element={<Profile />}/>   
           <Route  exact path='/Pagenotfound' element={<Pagenotfound />}/>   
+
         </Routes>
       </Router>
 

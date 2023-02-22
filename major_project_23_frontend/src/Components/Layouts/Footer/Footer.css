@@ -1,20 +1,14 @@
 .footer {
     align-items: center;
     background-color: #242424;
-    /* bottom: 0; */
     color: lavender;
     display: flex;
     font-size: 20px;
     height: 290px;
     justify-content: center;
-    /* position: fixed; */
     width: 100%;
     font-family: 'Poppins', sans-serif;
     z-index: 1;
-  }
-  
-  .row {
-    padding: 1em 1em;
   }
   .row.primary {
     display: grid;
@@ -43,7 +37,7 @@
     color: #a7a7a7;
     text-decoration: none;
   }
-  ul li .fo_navlink:hover {
+.fo_navlink:hover {
     color: #c7940a;
   }
   .about p {
@@ -80,7 +74,7 @@
     display: grid;
     grid-column-start: 1;
     grid-column-end: 4;
-    width: 100vw;
+    width: 98.5vw;
     margin-top: 12px;
     height: 75px;
   }
@@ -110,3 +104,76 @@
     color: #c7940a;
   }
   
+  @media screen and (max-width:962px) {
+    .copyright
+    {
+        width: 100.5vw;
+    }
+    .row.primary
+    {
+        grid-template-columns: none;
+    }
+  }
+  @media screen and (max-width:900px) {
+    .footer
+    {
+        width: 104vw;
+    }
+    .copyright
+    {
+        width: 104vw;
+    }
+}
+
+@media screen and (max-width:878px) {
+    .copyright
+    {
+        width: 98vw;
+    }
+    .footer
+    {
+        height: 100vh;
+        width: 100vw;
+    }
+    .row.primary
+    {
+        display: flex;
+        flex-direction: column;
+        font-size: 11px;
+    }
+    .fo_input{
+        width: 32vw;
+    }
+    .fo_btn {
+        width: 16vw;
+        margin-left: 12px;
+    }
+
+  }
+  @media screen and (max-width:425px) {
+    .fo_li
+    {
+        width: 0px;
+        padding: 1vh 0;
+    }
+    .fo_icon
+    {
+        padding: 4px;
+    }
+    
+}
+  @media screen and (max-width:500px) {
+    .fo_menu_nav, .fo_p
+    {
+        font-size: 8px;
+    }
+    .fo_icon
+    {
+        padding: 4px;
+    }
+    .footer
+    {
+        height: 60vh;
+    }
+    
+}
