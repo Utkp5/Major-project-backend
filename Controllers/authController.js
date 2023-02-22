@@ -12,34 +12,34 @@ export const registerController = async (req,res) => {
 
         //validations
         if (!firstName) {
-          return res.status(400).send({ error: "firstName is Required" });
+          return res.status(400).send({ message: "firstName is Required" });
         }
         if (!lastName) {
-          return res.status(400).send({ error: "lastName is Required" });
+          return res.status(400).send({ message: "lastName is Required" });
         }
         if (firstName === lastName) {
-          return res.status(400).send('firstname and lastname should not same')
+          return res.status(400).send({ message: 'firstname and lastname should not same'})
         }
         if (!emailValidator.validate(Email)) {
-          return res.status(400).send({ error: "Email is not correct" });
+          return res.status(400).send({ message: "Email is not correct" });
         }
         if (!Email) {
-          return res.status(400).send({ error : 'Email is required'})
+          return res.status(400).send({ message: 'Email is required'})
         }
         if (!password) {
-          return res.status(400).send({ error: "Password is Required" });
+          return res.status(400).send({ message: "Password is Required" });
         }
         if (password.length < 8) {
           return res.status(400).send('Password should have min 8 characters');
         }
         if (!phone) {
-          return res.status(400).send({ error: "Phone no is Required or you have typed wrong phone number" });
+          return res.status(400).send({ message: "Phone no is Required or you have typed wrong phone number" });
         }
         if (phone.length < 10  || phone.length > 10 ) {
-          return res.status(400).send({ error: "You have typed wrong phone number" });
+          return res.status(400).send({ message: "You have typed wrong phone number" });
         }
         if (!address) {
-          return res.status(400).send({ error: "Address is Required" });
+          return res.status(400).send({ message: "Address is Required" });
         }
     
         //check user
@@ -47,8 +47,8 @@ export const registerController = async (req,res) => {
 
         //exisiting user
         if (exisitingUser) {
-            return res.status(200).send({
-              success: true,
+            return res.status(500).send({
+              success: false,
               message: "Already Register please login",
             });
           }
