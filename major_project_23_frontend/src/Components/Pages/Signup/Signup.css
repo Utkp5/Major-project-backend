@@ -4,9 +4,11 @@
   }
   #sgn_h2{
       text-align: center;
-      margin-top: 12px;
+      margin-top: 30px;
+      margin-bottom: 10px;
       font-weight: 500;
-      font-family: 'Poppins', sans-serif;
+      color: dimgray;
+      font-family: 'Roboto', sans-serif;
   }
   .signup_gif
   {
@@ -34,7 +36,7 @@
       transition: all 0.5s;
       box-shadow: 2px 3px 7px 1px grey;
   }
-  #input_signup, #input_passwd
+  #input_signup, #input_passwd, #input_add
   {
       margin-left: 14px;
   }
@@ -60,7 +62,8 @@
       display: flex;
       flex-direction: column;
       justify-content: space-around;
-      height: 100px;
+      height: 119px;
+      margin-top: 10px;
   }
   .forgt_pass
   {

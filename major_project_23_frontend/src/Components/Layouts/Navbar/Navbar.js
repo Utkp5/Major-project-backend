@@ -9,7 +9,7 @@ function Navbar() {
 
   const  [inout,setinout] = useState();
    const [menu,setmenu] = useState(false);
-   const [inoutDirection, setDirection] = useState("/Sign in");
+   const [inoutDirection, setDirection] = useState("/Signin");
     
    useEffect(() => {
     let tokenval = localStorage.getItem("token");
@@ -20,8 +20,8 @@ function Navbar() {
     }
     else
     {
-      setinout("Sig in");
-      setDirection("/Sign in");
+      setinout("Signin");
+      setDirection("/Signin");
     }
    },[])
 

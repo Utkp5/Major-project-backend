@@ -11,7 +11,8 @@ function Signup() {
   const [lastName,setlastName] = useState();
   const [userEmail,setuserEmail] = useState();
   const [password,setpassword] = useState();
-  const [confirmPassword,setconfirmpassword] = useState();
+  const [phone,setphone] = useState();
+  const [address,setaddress] = useState();
 
 
   const handleSubmit = async () => {
@@ -45,8 +46,11 @@ function Signup() {
                 setpassword(e.target.value)
               }} />
               <br />
-              <input className="input_signup" type="password" name="confirmpassword" placeholder="Confirm Password" onChange={(e) => {
-                setconfirmpassword(e.target.value)
+              <input className="input_signup" type="number" maxLength="10" name="phone" placeholder="Phone Number" onChange={(e) => {
+                setphone(e.target.value)
+              }} />
+              <input className="input_signup" id="input_add" type="text" name="address" placeholder="Address" onChange={(e) => {
+                setaddress(e.target.value)
               }} />
               <div class="remember_form">
                 <span><input type="checkbox" /> &nbsp;Remember me</span>
