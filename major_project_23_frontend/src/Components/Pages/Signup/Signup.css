@@ -1,0 +1,73 @@
+.parent {
+    display: flex;
+    justify-content: space-around;
+  }
+  #sgn_h2{
+      text-align: center;
+      margin-top: 12px;
+      font-weight: 500;
+      font-family: 'Poppins', sans-serif;
+  }
+  .signup_gif
+  {
+      width: 102%;
+  }
+  .login
+  {
+      width: 40%;
+  }
+  .signup_btn {
+      padding: 15px 0px;
+      width: 40%;
+      align-self: center;
+      margin-top: 18px;
+      background-color: darkorange;
+      color: lavender;
+      cursor: pointer;
+      border-radius: 8px;
+      outline: 0;
+      border: none;
+      font-size: larger;
+  }
+  .signup_btn:hover
+  {
+      transition: all 0.5s;
+      box-shadow: 2px 3px 7px 1px grey;
+  }
+  #input_signup, #input_passwd
+  {
+      margin-left: 14px;
+  }
+  
+  .input_signup {
+      padding: 16px 17px;
+      font-size: large;
+      border-radius: 8px;
+      background: rgba(57, 57, 57, 0.07);
+      font-weight: normal;
+      border-bottom: 2px solid gainsboro;
+      border-top: none;
+      border-left: none;
+      border-right: none;
+      outline: 0;
+      margin: 12px 0;
+  }
+  .input_signup:focus{
+      border-bottom: 2px solid gray;
+  }
+  .remember_form{
+  
+      display: flex;
+      flex-direction: column;
+      justify-content: space-around;
+      height: 100px;
+  }
+  .forgt_pass
+  {
+      color: black;
+  }
+  .sgn_navlink
+  {
+      font-weight: 500;
+      color: black;
+  }

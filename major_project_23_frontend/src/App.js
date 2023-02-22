@@ -28,7 +28,7 @@ function App() {
           <Route  exact path='/Cart' element={<Cart />}/>   
           <Route  exact path='/Category' element={<Category />}/>   
           <Route  exact path='/Profile' element={<Profile />}/>   
-          <Route  exact path='/Pagenotfound' element={<Pagenotfound />}/>   
+          <Route  exact path='*' element={<Pagenotfound />}/>   
 
         </Routes>
       </Router>

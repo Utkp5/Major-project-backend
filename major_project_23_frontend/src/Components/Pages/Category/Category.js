@@ -1,10 +1,11 @@
 import React from 'react'
+import Layout from '../../Layouts/Layout/Layout'
 
 function Category() {
   return (
-    <div>
+    <Layout>
       category
-    </div>
+    </Layout>
   )
 }
 

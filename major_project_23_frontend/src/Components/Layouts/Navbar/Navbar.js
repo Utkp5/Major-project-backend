@@ -46,6 +46,7 @@ function Navbar() {
         <li> <NavLink to="/" id="a" >Home</NavLink> </li>
         <li> <NavLink to="/About" id="a" >About</NavLink> </li>
         <li><NavLink to="/Contact" id="a" >Contact</NavLink></li>
+        <li><NavLink to="/Category" id="a" >Category</NavLink></li>
         {!localStorage.getItem("token")? // ye command signup button ko hide krne ke liye hai.
         <li><NavLink to="/Signup" className="signin_button"><button className="navbar_button" >Sign up</button></NavLink></li>
         :null
