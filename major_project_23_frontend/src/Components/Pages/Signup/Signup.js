@@ -57,24 +57,24 @@ function Signup() {
             <div className="signupform">
               <input className="input_signup" type="text" name="firstName" placeholder="First Name" onChange={(e) => {
                 setfirstName(e.target.value)
-              }} />
+              }} required/>
               <input className="input_signup" id="input_signup" type="text" name="lastName"  placeholder="Last Name" onChange={(e) => {
                 setlastName(e.target.value)
-              }} />
+              }} required/>
               <br />
               <input className="input_signup" type="email" name="userEmail" placeholder="E-mail Address" onChange={(e) => {
                 setEmail(e.target.value)
-              }} />
+              }} required/>
               <input className="input_signup" id="input_passwd" type="password" name="password" placeholder="Password" onChange={(e) => {
                 setpassword(e.target.value)
-              }} />
+              }} required/>
               <br />
               <input className="input_signup" type="number" maxLength="10" name="phone" placeholder="Phone Number" onChange={(e) => {
                 setphone(e.target.value)
-              }} />
+              }} required/>
               <input className="input_signup" id="input_add" type="text" name="address" placeholder="Address" onChange={(e) => {
                 setaddress(e.target.value)
-              }} />
+              }} required/>
               <div class="remember_form">
                 <span><input type="checkbox" /> &nbsp;Remember me</span>
                 <span>You are creating an account, and agree to Bookshala <NavLink className="sgn_navlink">Terms of Service</NavLink> and <NavLink className="sgn_navlink">Privacy Policy</NavLink></span>
