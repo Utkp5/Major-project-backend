@@ -3,34 +3,15 @@ import "./Navbar.css";
 import { NavLink } from 'react-router-dom'
 import { HiMenu } from "react-icons/hi";
 import { HiX } from "react-icons/hi";
-
+import { useAuth } from "../../Context/auth";
 
 function Navbar() {
 
-  const  [inout,setinout] = useState();
-   const [menu,setmenu] = useState(false);
-   const [inoutDirection, setDirection] = useState("/Signin");
+  const [menu,setmenu] = useState(false);
+  const [auth, setAuth] = useAuth();
+
     
-   useEffect(() => {
-    let tokenval = localStorage.getItem("token");
-
-    if (tokenval) {
-      setinout("Logout")
-      setDirection("/")
-    }
-    else
-    {
-      setinout("Signin");
-      setDirection("/Signin");
-    }
-   },[])
-
-   const Handlechange = () => {
-    let tokenval = localStorage.getItem("token");
-    if (tokenval) {
-      localStorage.removeItem("token");
-    }
-   }
+   
 
 
 
@@ -47,13 +28,14 @@ function Navbar() {
         <li> <NavLink to="/About" id="a" >About</NavLink> </li>
         <li><NavLink to="/Contact" id="a" >Contact</NavLink></li>
         <li><NavLink to="/Category" id="a" >Category</NavLink></li>
-        {!localStorage.getItem("token")? // ye command signup button ko hide krne ke liye hai.
-        <li><NavLink to="/Signup" className="signin_button"><button className="navbar_button" >Sign up</button></NavLink></li>
-        :null
+        {
+          !auth.user ? (<>
+            <li><NavLink to="/Signup" className="signin_button"><button className="navbar_button" >Sign up</button></NavLink></li>
+            <li><NavLink to="/Signin" className="signin_button"><button className="navbar_button">Sign in</button></NavLink></li>
+            </>) : (<>
+              <li><NavLink to="/Signin" className="signin_button"><button className="navbar_button">Logout</button></NavLink></li>
+              </>)
         }
-        <li><NavLink to={inoutDirection} className="signin_button"><button className="navbar_button" onClick={() => {
-        Handlechange();
-        }}>{inout}</button></NavLink></li>
         <li><NavLink to="/Cart" id="a">Cart(0)</NavLink></li>
       </ul>
 
