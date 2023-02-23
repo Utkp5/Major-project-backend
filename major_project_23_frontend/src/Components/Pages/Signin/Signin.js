@@ -5,13 +5,14 @@ import { useNavigate, NavLink } from "react-router-dom";
 import img2 from "../Assets/login.avif";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-
+import { useAuth } from "../../Context/auth";
 
 
 function Signin() {
 
   const [Email,setEmail] = useState();
   const [password,setpassword] = useState();
+  const [auth, setAuth] = useAuth();
 
   const Navigate = useNavigate()
 
@@ -26,6 +27,12 @@ function Signin() {
 
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
+        setAuth({
+          ...auth,
+          user: res.data.user,
+          token: res.data.token,
+        });
+        localStorage.setItem('auth',JSON.stringify(res.data));
         Navigate('/');
       }
       else {
