@@ -10,6 +10,12 @@ function Navbar() {
   const [menu,setmenu] = useState(false);
   const [auth, setAuth] = useAuth();
 
+  const handleLogout = () => {
+    setAuth({
+      ...auth,user:null,token:''
+    });
+    localStorage.removeItem('auth');
+  }
     
    
 
@@ -33,7 +39,7 @@ function Navbar() {
             <li><NavLink to="/Signup" className="signin_button"><button className="navbar_button" >Sign up</button></NavLink></li>
             <li><NavLink to="/Signin" className="signin_button"><button className="navbar_button">Sign in</button></NavLink></li>
             </>) : (<>
-              <li><NavLink to="/Signin" className="signin_button"><button className="navbar_button">Logout</button></NavLink></li>
+              <li><NavLink to="/" onClick={handleLogout} className="signin_button"><button className="navbar_button">Logout</button></NavLink></li>
               </>)
         }
         <li><NavLink to="/Cart" id="a">Cart(0)</NavLink></li>
