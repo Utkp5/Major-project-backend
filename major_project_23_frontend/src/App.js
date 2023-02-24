@@ -13,6 +13,8 @@ const Cart = lazy(() => import('./Components/Pages/Cart/Cart'));
 const Dashboard = lazy(() => import('./Components/Pages/User/Dashboard'));
 const Private = lazy(() => import('./Components/Routes/Private'));
 const Category = lazy(() => import('./Components/Pages/Category/Category'));
+const Admin = lazy(() => import ('./Components/Routes/Admin'));
+const Admindashboard = lazy(() => import ('./Components/Pages/Admin/Admindashboard'));
 const Pagenotfound = lazy(() => import('./Components/Pages/Pagenotfound'));
 const Forgotpass = lazy(() => import('./Components/Pages/Forgtpasswd/Forgotpass'));
 
@@ -24,7 +26,10 @@ function App() {
         <Routes>
           <Route  exact path='/' element={<Home />}/>   
           <Route  exact path='/Dashboard' element={<Private />}>
-              <Route  exact path='' element={<Dashboard />}/>   
+              <Route  exact path='user' element={<Dashboard />}/>   
+          </Route>   
+          <Route  exact path='/Dashboard' element={<Admin />}>
+              <Route  exact path='admin' element={<Admindashboard />}/>   
           </Route>   
           <Route  exact path='/About' element={<About />}/>   
           <Route  exact path='/Contact' element={<Contact />}/>   
