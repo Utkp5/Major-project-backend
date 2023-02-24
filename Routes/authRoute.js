@@ -12,7 +12,7 @@ router.post("/Login", loginController)
 
 router.get("/Test", requireSignIn, isAdmin, testController);
 
-router.get("/Userauth", requireSignIn, (req,res) => {
+router.get("/user-auth", requireSignIn, (req,res) => {
     return res.status(200).send({ok : true})
 });
 

@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Layout from "../../Layouts/Layout/Layout";
 import "./Signin.css"
-import { useNavigate, NavLink } from "react-router-dom";
+import { useNavigate, NavLink, useLocation } from "react-router-dom";
 import img2 from "../Assets/login.avif";
 import axios from "axios";
 import { toast } from "react-hot-toast";
@@ -15,7 +15,7 @@ function Signin() {
   const [auth, setAuth] = useAuth();
 
   const Navigate = useNavigate()
-
+  const location = useLocation();
 
   const handleSubmitlogin = async (e) => {
 
@@ -33,7 +33,7 @@ function Signin() {
           token: res.data.token,
         });
         localStorage.setItem('auth',JSON.stringify(res.data));
-        Navigate('/');
+        Navigate(location.state || '/');
       }
       else {
         toast.error(res.data.message);

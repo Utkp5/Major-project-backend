@@ -4,14 +4,14 @@ import { Outlet } from 'react-router-dom';
 import { useAuth } from '../Context/auth'
 import Spinner from '../Spinner';
 
-function Private() {
+export default function Private() {
 
     const [auth,setauth] = useAuth();
     const [ok,setok] = useState(false);
 
     useEffect(() => {
         const authCheck = async () => {
-            const res = axios.get("/api/Userauth");
+            const res = await axios.get('http://localhost:5000/api/user-auth');
             if (res.data.ok) {
                 setok(true)
             }
@@ -20,9 +20,9 @@ function Private() {
             }
         };
         if (auth?.token) authCheck();
-    },[auth?.token])
+    },[auth?.token]);
 
-  return ok ? <Outlet /> : <Spinner />
+  return ok ? <Outlet /> : <Spinner />;
 }
 
-export default Private
+ 
