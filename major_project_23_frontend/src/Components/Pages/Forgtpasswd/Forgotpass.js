@@ -1,39 +1,31 @@
 import React,{useState} from "react";
 import Layout from "../../Layouts/Layout/Layout";
 import "../Signin/Signin.css";
-import { useNavigate, NavLink, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 import img2 from "../Assets/login.avif";
 import axios from "axios";
 import { toast } from "react-hot-toast";
-import { useAuth } from "../../Context/auth";
 
 
 function Forgotpass() {
 
   const [Email,setEmail] = useState();
-  const [password,setpassword] = useState();
-  const [auth, setAuth] = useAuth();
+  const [answer,setanswer] = useState();
+  const [newPassword,setnewPassword] = useState();
 
   const Navigate = useNavigate()
-  const location = useLocation();
 
-  const handleSubmitlogin = async (e) => {
+  const handleForgtpass = async (e) => {
 
     try {
       
-      const user = {Email,password}
+      const user = {Email,newPassword,answer}
 
-      const res = await axios.post('http://localhost:5000/api/Login',user)
+      const res = await axios.post('http://localhost:5000/api/Forgotpassword',user)
 
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
-        setAuth({
-          ...auth,
-          user: res.data.user,
-          token: res.data.token,
-        });
-        localStorage.setItem('auth',JSON.stringify(res.data));
-        Navigate(location.state || '/');
+        Navigate('/');
       }
       else {
         toast.error(res.data.message);
@@ -65,16 +57,17 @@ function Forgotpass() {
                 setEmail(e.target.value);
               }} required/>
             <br />
-            <input className="input_signin" type="password" name="password" placeholder="Password" onChange={(e) => {
-                setpassword(e.target.value);
+            <input className="input_signin" type="text" name="answer" placeholder="Your favourite place" onChange={(e) => {
+                setanswer(e.target.value);
+              }} required/>
+            <br />
+            <input className="input_signin" type="password" name="newPassword" placeholder="New Password" onChange={(e) => {
+                setnewPassword(e.target.value);
               }}required/>
-            <div class="remember_form">
-              <NavLink to="/Forgotpassword" className="signin_nav">Forgot Password ?</NavLink>
-            </div>
             <button type="submit" className="signin_btn" onClick={() => {
-                handleSubmitlogin();
+                handleForgtpass();
               }}>
-              Log in
+              Reset password
             </button>
           </div>
         </div>
