@@ -15,6 +15,7 @@ function Signup() {
   const [password,setpassword] = useState();
   const [phone,setphone] = useState();
   const [address,setaddress] = useState();
+  const [answer,setanswer] = useState();
 
   const Navigate = useNavigate()
 
@@ -74,6 +75,9 @@ function Signup() {
               }} required/>
               <input className="input_signup" id="input_add" type="text" name="address" placeholder="Address" onChange={(e) => {
                 setaddress(e.target.value)
+              }} required/>
+              <input className="input_signup" id="input_ad" type="text" name="answer" placeholder="Your favourite place*" onChange={(e) => {
+                setanswer(e.target.value)
               }} required/>
               <div class="remember_form">
                 <span><input type="checkbox" /> &nbsp;Remember me</span>

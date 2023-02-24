@@ -8,7 +8,7 @@ export const registerController = async (req,res) => {
 
     try {
 
-        const {firstName, lastName, Email, password, phone, address} = req.body;
+        const {firstName, lastName, Email, password, phone, address, answer} = req.body;
 
         //validations
         if (!firstName) {
@@ -41,6 +41,9 @@ export const registerController = async (req,res) => {
         if (!address) {
           return res.status(400).send({ message: "Address is Required" });
         }
+        if (!answer) {
+          return res.status(400).send({ message: "Answer is Required for security person" });
+        }
     
         //check user
         const exisitingUser = await userModel.findOne({ Email });
@@ -62,6 +65,7 @@ export const registerController = async (req,res) => {
           Email,
           phone,
           address,
+          answer,
           password: hashedPassword,
         }).save();
     

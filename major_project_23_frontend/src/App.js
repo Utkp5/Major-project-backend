@@ -14,6 +14,7 @@ const Dashboard = lazy(() => import('./Components/Pages/User/Dashboard'));
 const Private = lazy(() => import('./Components/Routes/Private'));
 const Category = lazy(() => import('./Components/Pages/Category/Category'));
 const Pagenotfound = lazy(() => import('./Components/Pages/Pagenotfound'));
+const Forgotpass = lazy(() => import('./Components/Pages/Forgtpasswd/Forgotpass'));
 
 function App() {
   return (
@@ -31,6 +32,7 @@ function App() {
           <Route  exact path='/Signin' element={<Signin />}/>  
           <Route  exact path='/Cart' element={<Cart />}/>   
           <Route  exact path='/Category' element={<Category />} />   
+          <Route exact path='/Forgotpassword' element={<Forgotpass />}/>
           <Route  exact path='*' element={<Pagenotfound />}/>   
 
         </Routes>
