@@ -151,3 +151,40 @@ export const testController = (req,res) => {
   }
 
 };
+
+
+//forgot password 
+export const ForgotpasswordController = async (req,res) => {
+
+  try {
+    
+    const [Email,answer,newPassword] = req.body;
+    if (!Email) {
+      return res.status(400).send({message : 'Email is required'})
+    }
+    if (!answer) {
+      return res.status(400).send({message : 'answer is required'})
+    }
+    if (!newPassword) {
+      return res.status(400).send({message : 'newPassword is required'})
+    }
+    //check
+    const user = await userModel.findOne({Email,answer});
+    if (!user) {
+      return res.status(401).send({
+        success : false,
+        message : 'Wrong email or answer'
+      });
+    }
+
+    const hased = await hashPassword(newPassword);
+    await userModel.findByIdAndUpdate(user._id,{password:hased});
+    return res.status(200).send({
+      success: true,
+      message : "Password reset successfully",
+    });
+  } catch (error) {
+    return res.status(500).send(error);
+  }
+
+}

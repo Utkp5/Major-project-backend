@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema (
             type : String,
             require :true,
         },
-        question : {
+        answer : {
             type : String,
             require : true,
         },
