@@ -2,6 +2,7 @@ import './App.css';
 import React,{Suspense, lazy} from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Loading from "./Components/Layouts/Loading/Loading";
+import Private from './Components/Routes/Private';
 
 
 const Home    = lazy(() => import('./Components/Pages/Home/Home'));
@@ -26,8 +27,10 @@ function App() {
           <Route  exact path='/Signup' element={<Signup />}/>   
           <Route  exact path='/Signin' element={<Signin />}/>  
           <Route  exact path='/Cart' element={<Cart />}/>   
-          <Route  exact path='/Category' element={<Category />}/>   
-          <Route  exact path='/Dashboard' element={<Dashboard />}/>   
+          <Route  exact path='/Category' element={<Category />}>   
+          <Route  exact path='/Dashboard' element={<Private />}/>
+              <Route  exact path='' element={<Dashboard />}/>   
+          </Route>   
           <Route  exact path='*' element={<Pagenotfound />}/>   
 
         </Routes>
