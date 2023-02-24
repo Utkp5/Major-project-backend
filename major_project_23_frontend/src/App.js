@@ -10,7 +10,7 @@ const Contact = lazy(() => import('./Components/Pages/Contact/Contact'));
 const Signup = lazy(() => import('./Components/Pages/Signup/Signup'));
 const Signin = lazy(() => import('./Components/Pages/Signin/Signin'));
 const Cart = lazy(() => import('./Components/Pages/Cart/Cart'));
-const Profile = lazy(() => import('./Components/Pages/Profile/Profile'));
+const Dashboard = lazy(() => import('./Components/Pages/User/Dashboard'));
 const Category = lazy(() => import('./Components/Pages/Category/Category'));
 const Pagenotfound = lazy(() => import('./Components/Pages/Pagenotfound'));
 
@@ -27,7 +27,7 @@ function App() {
           <Route  exact path='/Signin' element={<Signin />}/>  
           <Route  exact path='/Cart' element={<Cart />}/>   
           <Route  exact path='/Category' element={<Category />}/>   
-          <Route  exact path='/Profile' element={<Profile />}/>   
+          <Route  exact path='/Dashboard' element={<Dashboard />}/>   
           <Route  exact path='*' element={<Pagenotfound />}/>   
 
         </Routes>

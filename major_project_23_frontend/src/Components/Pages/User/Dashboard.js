@@ -3,8 +3,9 @@ import Layout from '../../Layouts/Layout/Layout'
 
 function Dashboard() {
   return (
-    <Layout title={'Hidden Brands - Profile dashboard'}>
-      
+    <Layout title={'Hidden Brands - Dashboard'}>
+    dashboard page  
+
     </Layout>
   )
 }
