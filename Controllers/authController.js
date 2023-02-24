@@ -162,7 +162,8 @@ export const ForgotpasswordController = async (req,res) => {
 
   try {
     
-    const [Email,answer,newPassword] = req.body;
+    const {Email, answer, newPassword} = req.body
+    
     if (!Email) {
       return res.status(400).send({message : 'Email is required'})
     }
@@ -181,14 +182,18 @@ export const ForgotpasswordController = async (req,res) => {
       });
     }
 
-    const hased = await hashPassword(newPassword);
-    await userModel.findByIdAndUpdate(user._id,{password:hased});
+    const hashed = await hashPassword(newPassword);
+    await userModel.findByIdAndUpdate(user._id,{password:hashed});
     return res.status(200).send({
       success: true,
       message : "Password reset successfully",
     });
   } catch (error) {
-    return res.status(500).send(error);
+    return res.send({
+      success : false,
+      message:'something went wrong',
+      error
+    });
   }
 
 }

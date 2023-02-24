@@ -15,17 +15,19 @@ function Forgotpass() {
 
   const Navigate = useNavigate()
 
-  const handleForgtpass = async (e) => {
+  const handleForgtpass = async () => {
 
     try {
       
-      const user = {Email,newPassword,answer}
-
-      const res = await axios.post('http://localhost:5000/api/Forgotpassword',user)
+      const res = await axios.post('http://localhost:5000/api/Forgotpassword',{
+        Email,
+        answer,
+        newPassword
+      });
 
       if (res && res.data.success) {
         toast.success(res.data && res.data.message);
-        Navigate('/');
+        Navigate('/Signin');
       }
       else {
         toast.error(res.data.message);
@@ -53,7 +55,7 @@ function Forgotpass() {
           <br />
           <p className="sgnin_p">Enter The Information You Entered while Registering!</p>
           <div className="signinform">
-            <input className="input_signin" type="email" name="userEmail" placeholder="E-mail Address" onChange={(e) => {
+            <input className="input_signin" type="email" name="Email" placeholder="E-mail Address" onChange={(e) => {
                 setEmail(e.target.value);
               }} required/>
             <br />

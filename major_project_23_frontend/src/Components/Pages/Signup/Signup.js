@@ -25,7 +25,7 @@ function Signup() {
 
     try {
 
-      const user = {firstName,lastName,Email,password,phone,address};
+      const user = {firstName,lastName,Email,password,phone,address,answer};
 
       const res =  await axios.post('http://localhost:5000/api/Register',user)
       if(res && res.data.success) 
@@ -63,7 +63,7 @@ function Signup() {
                 setlastName(e.target.value)
               }} required/>
               <br />
-              <input className="input_signup" type="email" name="userEmail" placeholder="E-mail Address" onChange={(e) => {
+              <input className="input_signup" type="email" name="Email" placeholder="E-mail Address" onChange={(e) => {
                 setEmail(e.target.value)
               }} required/>
               <input className="input_signup" id="input_passwd" type="password" name="password" placeholder="Password" onChange={(e) => {

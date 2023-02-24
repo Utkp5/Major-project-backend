@@ -59,7 +59,7 @@ function Signin() {
             <h2 id="sgnin_h3">Hey Welcome Back 👋</h2><br />
             <p className="sgnin_p">Enter The Information You Entered while Registering!</p>
             <div className="signinform">
-            <input className="input_signin" type="email" name="userEmail" placeholder="E-mail Address" onChange={(e) => {
+            <input className="input_signin" type="email" name="Email" placeholder="E-mail Address" onChange={(e) => {
               setEmail(e.target.value);
             }} required/>
             <br />
