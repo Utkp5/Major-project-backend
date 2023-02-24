@@ -1,12 +1,12 @@
 import React from 'react'
 import Layout from '../../Layouts/Layout/Layout'
 
-function Profile() {
+function Dashboard() {
   return (
-    <Layout title={'Hidden Brands - Profile'}>
+    <Layout title={'Hidden Brands - Profile dashboard'}>
       
     </Layout>
   )
 }
 
-export default Profile
+export default Dashboard
