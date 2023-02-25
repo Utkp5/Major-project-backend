@@ -1,0 +1,23 @@
+.admin_d_h2{
+    text-align: center;
+    font-family: 'Roboto', sans-serif;
+    /* font-family: 'Poppins', sans-serif; */
+    margin: 30px 0;
+}
+.admin_m_main
+{
+    border: 1px solid red;
+    height: 100vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    padding: 0 30px;
+}
+.admin_m_sub
+{
+    border: 1px solid gray;
+    display: flex;
+    flex-direction: column;
+    width: 20vw;
+    align-items: center;
+}

@@ -17,6 +17,10 @@ const Admin = lazy(() => import ('./Components/Routes/Admin'));
 const Admindashboard = lazy(() => import ('./Components/Pages/Admin/Admindashboard'));
 const Pagenotfound = lazy(() => import('./Components/Pages/Pagenotfound'));
 const Forgotpass = lazy(() => import('./Components/Pages/Forgtpasswd/Forgotpass'));
+const Createproduct = lazy(() => import('./Components/Pages/Admin/Crtproduct/Createproduct'));
+const Createcategory = lazy(() => import('./Components/Pages/Admin/Crtcategory/Createcategory'));
+const Users = lazy(() => import('./Components/Pages/Admin/Users/Users'));
+
 
 function App() {
   return (
@@ -30,6 +34,9 @@ function App() {
           </Route>   
           <Route  exact path='/Dashboard' element={<Admin />}>
               <Route  exact path='admin' element={<Admindashboard />}/>   
+              <Route  exact path='admin/Create-products' element={<Createproduct />}/>   
+              <Route  exact path='admin/Create-category' element={<Createcategory />}/>   
+              <Route  exact path='admin/Users' element={<Users />}/>   
           </Route>   
           <Route  exact path='/About' element={<About />}/>   
           <Route  exact path='/Contact' element={<Contact />}/>   

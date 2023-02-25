@@ -61,8 +61,15 @@
   }
   .dropbtn
   {
-    padding: 4px 8px;
+    padding: 4px 10px;
     font-size: 3.5vh;
+    background: transparent;
+    color: lavender;
+    border-bottom: 2px solid;
+    text-transform: capitalize;
+    border-top: none;
+    border-right: none;
+    border-left: none;
   }
 
   /* Links inside the dropdown */

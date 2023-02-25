@@ -1,0 +1,20 @@
+
+.admin_m_nav
+{
+    padding: 20px 0px;
+}
+.admin_m_btn
+{
+    font-size: x-large;
+    padding: 8px 20px;
+    background: darkorange;
+    border: navajowhite;
+    border-radius: 4px;
+    color: floralwhite;
+    cursor: pointer;
+}
+.admin_m_btn:active
+{
+    background-color: black;
+    color: #ffffff;
+}

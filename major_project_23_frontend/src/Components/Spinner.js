@@ -4,9 +4,9 @@ import ClipLoader from "react-spinners/ClipLoader";
 import "./Layouts/Loading/Loading.css";
 
 
-function Spinner({path="/Signin"}) {
+function Spinner({path="Signin"}) {
 
-    const [count,setcount] = useState(5);
+    const [count,setcount] = useState(3);
     const Navigate = useNavigate();
     const location = useLocation();
 
@@ -15,7 +15,7 @@ function Spinner({path="/Signin"}) {
         const interval = setInterval(() => {
             setcount((prevalue) => --prevalue)
         }, 1000);
-        count === 0 && Navigate('/Signin', {
+        count === 0 && Navigate(`/${path}`, {
             state: location.pathname,
         });
         return () => clearInterval(interval);
