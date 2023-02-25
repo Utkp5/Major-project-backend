@@ -3,6 +3,7 @@ import "./Navbar.css";
 import { NavLink } from 'react-router-dom'
 import { HiMenu } from "react-icons/hi";
 import { HiX } from "react-icons/hi";
+import { HiOutlineChevronDown } from "react-icons/hi";
 import { useAuth } from "../../Context/auth";
 
 function Navbar() {
@@ -38,9 +39,16 @@ function Navbar() {
           !auth.user ? (<>
             <li><NavLink to="/Signup" className="signin_button"><button className="navbar_button" >Sign up</button></NavLink></li>
             <li><NavLink to="/Signin" className="signin_button"><button className="navbar_button">Sign in</button></NavLink></li>
-            </>) : (<>
-              <li><NavLink to="/" onClick={handleLogout} className="signin_button"><button className="navbar_button">Logout</button></NavLink></li>
-              </>)
+            </>) : (
+              <div className="dropdown">
+                  <button className="dropbtn">{auth?.user?.firstName}<HiOutlineChevronDown className="dropdown_icon"/></button>
+                    <div className="dropdown-content" >
+                      <NavLink to={`/Dashboard/${auth?.user?.role === 1 ? "admin" : "user"}`} className="dropdown_navlink">Profile</NavLink> 
+                      <li><NavLink to="/" onClick={handleLogout} className="dropdown_navlink">Logout</NavLink></li>
+                    </div>
+              </div>
+
+              )
         }
         <li><NavLink to="/Cart" id="a">Cart(0)</NavLink></li>
       </ul>

@@ -4,7 +4,7 @@ import ClipLoader from "react-spinners/ClipLoader";
 import "./Layouts/Loading/Loading.css";
 
 
-function Spinner() {
+function Spinner({path="/Signin"}) {
 
     const [count,setcount] = useState(5);
     const Navigate = useNavigate();
@@ -19,7 +19,7 @@ function Spinner() {
             state: location.pathname,
         });
         return () => clearInterval(interval);
-    },[count, Navigate, location]);
+    },[count, Navigate, location, path]);
 
   return (
     <div id="Loading_div">
