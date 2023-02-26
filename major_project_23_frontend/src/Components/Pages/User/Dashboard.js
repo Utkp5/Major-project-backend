@@ -1,5 +1,6 @@
 import React from 'react'
 import Layout from '../../Layouts/Layout/Layout'
+import Usermenu from '../../Layouts/Usermenu/Usermenu';
 import "./Dashboard.css";
 
 function Dashboard() {
@@ -10,7 +11,7 @@ function Dashboard() {
 
       <div className='user_m_main'>
 
-        <div className='user_m_sub'><Dashboard /></div>
+        <div className='user_m_sub'><Usermenu /></div>
         
         <div className='user_m_sub1'></div>
       </div>

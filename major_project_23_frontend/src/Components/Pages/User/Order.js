@@ -13,7 +13,10 @@ function Order() {
 
         <div className='user_m_sub'><Usermenu /></div>
         
-        <div className='user_m_sub1'>Orders</div>
+        <div className='font_user'>
+            <h2 className='user_m_sub1'>Orders</h2>
+        </div>
+
       </div>
 
 
