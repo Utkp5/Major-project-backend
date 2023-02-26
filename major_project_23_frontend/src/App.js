@@ -19,6 +19,8 @@ const Pagenotfound = lazy(() => import('./Components/Pages/Pagenotfound'));
 const Forgotpass = lazy(() => import('./Components/Pages/Forgtpasswd/Forgotpass'));
 const Createproduct = lazy(() => import('./Components/Pages/Admin/Crtproduct/Createproduct'));
 const Createcategory = lazy(() => import('./Components/Pages/Admin/Crtcategory/Createcategory'));
+const Order = lazy(() => import('./Components/Pages/User/Order')) ;
+const Profile = lazy(() => import ('./Components/Pages/User/Profile')) ;
 const Users = lazy(() => import('./Components/Pages/Admin/Users/Users'));
 
 
@@ -31,6 +33,8 @@ function App() {
           <Route  exact path='/' element={<Home />}/>   
           <Route  exact path='/Dashboard' element={<Private />}>
               <Route  exact path='user' element={<Dashboard />}/>   
+              <Route  exact path='user/Orders' element={<Order />}/>   
+              <Route  exact path='user/Profile' element={<Profile />}/>   
           </Route>   
           <Route  exact path='/Dashboard' element={<Admin />}>
               <Route  exact path='admin' element={<Admindashboard />}/>   
