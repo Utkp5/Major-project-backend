@@ -3,8 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 import cors from 'cors'
 import morgan  from "morgan";
-// const cors = require('cors');
-// const logger = require("morgan");
+
 
 
 
@@ -43,6 +42,8 @@ app.get("/", function (req, res) {
 // const authRoute = require("./Routes/authRoute");
 import authRoute from "./Routes/authRoute.js";
 app.use("/api",authRoute);
+import categoryRoute from "./Routes/categoryRoute.js";
+app.use("/api/category",categoryRoute);
 
 
 
