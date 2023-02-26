@@ -1,9 +1,9 @@
 import slugify from "slugify";
-import Category from "../Models/category.js";
+import categoryModel from "../Models/category.js";
 
 
 // create category
-export const categoryController = async(req,res) => {
+export const createcategoryController = async(req,res) => {
 
     try {
         
@@ -11,7 +11,7 @@ export const categoryController = async(req,res) => {
         if (!name) {
             return res.status(400).send({message : `Name is required`});
         }
-        const existingCategory = await Category.findOne({name});
+        const existingCategory = await categoryModel.findOne({name});
         if (existingCategory) {
             return res.status(401).send({
                 success:false,
@@ -19,7 +19,7 @@ export const categoryController = async(req,res) => {
             });
         }
 
-        const category = await new Category({name, slug:slugify(name)}).save();
+        const category = await new categoryModel({name, slug:slugify(name)}).save();
         return res.status(200).send({
             success:true,
             message: `New category created`,
@@ -42,11 +42,44 @@ export const updateController = async(req,res) => {
 
     try {
         
+        const {name} = req.body;
+        const {id} = req.params;
+        const Category = await categoryModel.findByIdAndUpdate(id,{name,slug:slugify(name)},{new:true})
+        return res.status(200).send({
+            success:true,
+            message: 'Updated successfully',
+            Category
+        });
+
     } catch (error) {
         console.log(error);
         return res.status(500).send({
             success:false,
             message:'error while update'
+        });
+    }
+
+}
+
+
+//get all category
+
+export const categoryController = async(req,res) => {
+    
+    try {
+        
+        const Category = await categoryModel.find({})
+        return res.status(200).send({
+            success:true,
+            message:'Here  are all categories',
+            Category
+        })
+
+    } catch (error) {
+        console.log(error);
+        return res.status(500).send({
+            success:false,
+            message:'not find any category'
         });
     }
 
