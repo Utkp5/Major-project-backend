@@ -44,7 +44,8 @@ import authRoute from "./Routes/authRoute.js";
 app.use("/api",authRoute);
 import categoryRoute from "./Routes/categoryRoute.js";
 app.use("/api/category",categoryRoute);
-
+import productRoute from "./Routes/productRoute.js";
+app.use("/api/product", productRoute);
 
 
 
