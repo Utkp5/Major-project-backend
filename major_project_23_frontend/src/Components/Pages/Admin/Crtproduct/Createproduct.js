@@ -14,7 +14,13 @@ function Createproduct() {
 
         <div className="admin_m_sub"><Adminmenu /></div>
 
-        <div className="admin_m_sub1">Products</div>
+        <div className="admin_m_sub1 font_user">
+          <h2 className='admin_m_h2'>Products</h2>
+
+          <div className='admin_m_sub2'>
+
+          </div>
+        </div>
 
       </div>
     </Layout>

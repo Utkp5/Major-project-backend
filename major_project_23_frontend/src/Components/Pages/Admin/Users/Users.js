@@ -12,7 +12,13 @@ function Users() {
       <div className="admin_m_main">
         <div className="admin_m_sub"><Adminmenu /></div>
 
-        <div className="admin_m_sub1">All users</div>
+        <div className="admin_m_sub1 font_user">
+          <h2 className='admin_m_h2'>All users</h2>
+
+          <div className='admin_m_sub2'>
+
+          </div>
+        </div>
       </div>
       
     </Layout>
