@@ -1,17 +1,36 @@
 #admin_table
 {
   border-collapse: collapse;
-  width: 100%;
+  margin-left: 20px;
+  margin-top: 10px;
 }
-#admin_table #admin_td, #admin_table .admin_th {
+#admin_table .admin_td, #admin_table .admin_th {
     border: 1px solid #ddd;
     padding: 8px;
+    font-family: 'Poppins', sans-serif;
 }
 tr:hover {background-color: #ddd;}
+
 #admin_table .admin_th {
-    padding-top: 12px;
-    padding-bottom: 12px;
-    text-align: left;
-    background-color: #04AA6D;
-    color: white;
-  }
+  padding-bottom: 12px;
+  padding-top: 12px;
+  background-color: #04AA6D;
+  color: white;
+  width: 30vw;
+}
+.admin_btn {
+  font-size: large;
+  padding: 6px 20px;
+  border: none;
+  cursor: pointer;
+  background: gold;
+  color: black;
+  font-family: 'Poppins', sans-serif;
+  border-radius: 3px;
+}
+.admin_btn_d
+{
+  background-color: crimson;
+  color: lavender;
+  margin-left: 20px;
+}

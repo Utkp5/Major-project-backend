@@ -1,19 +1,44 @@
-import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { toast } from "react-hot-toast";
 import Adminmenu from "../../../Layouts/Adminmenu/Adminmenu";
+import Categoryform from "../../../Forms/Categoryform";
 import Layout from "../../../Layouts/Layout/Layout";
 import "../Admindashboard.css";
 import "./Createcategory.css";
+import {Modal} from "antd"
+import axios from "axios";
 
 function Createcategory() {
-  const [categories, setcategories] = useState([]);
 
+  const [categories, setcategories] = useState([]);
+  const [name,setname] = useState("")
+  const [visible,setvisible] = useState(false);
+  const [selected,setselected] = useState(null);
+  const [updatedName,setupdatedName] = useState("");
+
+
+  //create category 
+  const handleSubmit = async(e) => {
+    try {
+      e.preventDefault();
+      const {data} = await axios.post('http://localhost:5000/api/category/Create-category',{name})
+      if (data?.success) {
+        toast.success(`${name} category is created`);
+        getcategories();
+      }
+      else {
+        toast.error(data.message);  
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
+  }
+
+// display category
   const getcategories = async () => {
     try {
-      const { data } = await axios.get(
-        "http://localhost:5000/api/category/get-category"
-      );
+      const { data } = await axios.get("http://localhost:5000/api/category/get-category");
       if (data.success) {
         setcategories(data.Category);
       }
@@ -22,6 +47,20 @@ function Createcategory() {
       toast.error("Something went wrong");
     }
   };
+
+
+  //update category
+  const handleUpdate = async() => {
+    try {
+      
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
+  }
+
+
+
 
   useEffect(() => {
     getcategories();
@@ -39,6 +78,8 @@ function Createcategory() {
         <div className="admin_m_sub1 font_user">
           <h2 className="admin_m_h2">Manage Categories</h2>
 
+            <Categoryform handleSubmit={handleSubmit} value={name} setvalue={setname}/>
+
           <div className="admin_m_sub2">
             <div id="admin_table">
               <thead>
@@ -51,14 +92,20 @@ function Createcategory() {
                 {categories?.map((c) => (
                   <>
                     <tr>
-                      <td key={c._id} id="admin_td">{c.name}</td>
-                      <td><button>Edit</button></td>
+                      <td key={c._id} className="admin_td">{c.name}</td>
+                      <td className="admin_td">
+                      <button className="admin_btn" onClick={() => {setvisible(true); setupdatedName(c.name)}}>Edit</button>
+                      <button className="admin_btn admin_btn_d">Delete</button>
+                      </td>
                     </tr>
                   </>
                 ))}
               </tbody>
             </div>
           </div>
+          <Modal onCancel={() => setvisible(false) } visible={visible} footer={null}>
+           <Categoryform value={updatedName} setvalue={setupdatedName} handleSubmit={handleUpdate} />
+          </Modal>
         </div>
       </div>
     </Layout>
