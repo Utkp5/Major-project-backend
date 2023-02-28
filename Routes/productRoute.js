@@ -4,7 +4,8 @@ import { createProductController,
          deleteProductController, 
          getProductController, 
          productPhotoController, 
-         singleProductController
+         singleProductController,
+         updateProductController
         } from '../Controllers/productController.js';
 import { isAdmin, requireSignIn } from '../Middlewares/authMiddleware.js';
 import formidable from 'express-formidable';
