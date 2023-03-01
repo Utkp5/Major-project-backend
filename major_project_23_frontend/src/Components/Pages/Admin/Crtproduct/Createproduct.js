@@ -6,9 +6,12 @@ import "./Createproduct.css";
 import { toast } from 'react-hot-toast';
 import axios from 'axios';
 import {Select} from 'antd';
+import { useNavigate } from 'react-router-dom';
 const {Option} =  Select;
 
 function Createproduct() {
+
+  const navigate = useNavigate();
 
   const [categories,setcategories] = useState([]);
   const [name,setname] = useState("")
@@ -16,6 +19,7 @@ function Createproduct() {
   const [price,setprice] = useState("")
   const [photo,setphoto] = useState("")
   const [quantity,setquantity] = useState("")
+  const [category,setcategory] = useState("")
   const [shipping,setshipping] = useState("")
 
 
@@ -38,8 +42,29 @@ function Createproduct() {
   },[])
 
 
-  const handleCreate = async() => {
-    
+  const handleCreate = async(e) => {
+    e.preventDefault();
+    try {
+      const productData = new FormData();
+      productData.append("name", name);
+      productData.append("description", description);
+      productData.append("price", price);
+      productData.append("quantity", quantity);
+      productData.append("photo", photo);
+      productData.append("category", category);
+      const {data} = axios.post("http://localhost:5000/api/category/Create-product", productData);
+      if (data.success) {
+        toast.success('product created successfully')
+        navigate('/Dashboard/admin/products')
+      }
+      else {
+        toast.error(data?.message)
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
+
   }
 
 
@@ -85,7 +110,9 @@ function Createproduct() {
                   <Option value="1">Yes</Option>
                </Select>
             </div>
+            <div className='crt_btn_div'>
             <button className='crt_btn' onClick={handleCreate}>Create</button>
+            </div>
           </div>
         </div>
 
