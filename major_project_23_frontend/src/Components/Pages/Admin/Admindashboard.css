@@ -12,7 +12,7 @@
 .admin_m_main
 {
     /* border: 1px solid red; */
-    height: 100vh;
+    height: 200vh;
     display: flex;
     flex-direction: row;
     justify-content: flex-start;

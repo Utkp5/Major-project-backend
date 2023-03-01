@@ -52,7 +52,7 @@ function Createproduct() {
       productData.append("quantity", quantity);
       productData.append("photo", photo);
       productData.append("category", category);
-      const {data} = axios.post("http://localhost:5000/api/category/Create-product", productData);
+      const {data} = axios.post("http://localhost:5000/api/product/Create-product", productData);
       if (data.success) {
         toast.success('product created successfully')
         navigate('/Dashboard/admin/products')
@@ -82,7 +82,7 @@ function Createproduct() {
           <h2 className='admin_m_h2'>Products</h2>
 
           <div className='admin_m_sub2'>
-            <Select bordered={false} showSearch size="large" placeholder="select a category" onChange={(value) => {setcategories(value)}} >
+            <Select bordered={false} showSearch size="large" placeholder="select a category" onChange={(value) => setcategory(value)} >
             {
               categories.map(c => (
                 <Option key={c._id} value={c._id}>{c.name}</Option>
@@ -102,9 +102,9 @@ function Createproduct() {
             </div>
             <div className='p_div1'>
                <input type="text"  className='p_div1_input1' value={name} placeholder="Enter the product name" onChange={(e) => setname(e.target.value)}/><br />
-               <textarea name="description" className='p_div1_texta' cols="30" rows="10" value={description} placeholder='Enter the product description' onChange={(e) => setname(e.target.value)}></textarea>
-               <input type="number" placeholder='Enter the product price' className='p_div1_input2 p_div1_inputp' name="price"  value={price} onChange={(e) => setname(e.target.value)}/>
-               <input type="number" placeholder='Enter the product quantity' className='p_div1_input2 ' name="quantity" value={quantity} onChange={(e) => setname(e.target.value)}/>
+               <textarea name="description" className='p_div1_texta' cols="30" rows="10" value={description} placeholder='Enter the product description' onChange={(e) =>  setdescription(e.target.value)}></textarea>
+               <input type="number" placeholder='Enter the product price' className='p_div1_input2 p_div1_inputp' name="price"  value={price} onChange={(e) => setprice(e.target.value)}/>
+               <input type="number" placeholder='Enter the product quantity' className='p_div1_input2 ' name="quantity" value={quantity} onChange={(e) => setquantity(e.target.value)}/>
                <Select className='p_select' bordered={false} placeholder="select shipping" showSearch size='large' onChange={(value) => setshipping(value)}>
                   <Option value="0">No</Option>
                   <Option value="1">Yes</Option>
