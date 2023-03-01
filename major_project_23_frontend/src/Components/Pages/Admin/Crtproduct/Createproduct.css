@@ -6,3 +6,42 @@
     margin-left: 30px;
     margin-top: 20px;
 }
+.p_div
+{
+    margin-top: 30px;
+}
+.p_label
+{
+    margin: 0 30px;
+    border: 2px solid dimgray;
+    padding: 4px 30px;
+}
+.p_div1
+{
+    margin-left: 30px;
+    display: flex;
+    flex-direction: column;
+    width: 50vw;
+    margin-top: 25px;   
+}
+.p_div1_input1
+{
+    padding: 15px 10px;
+}
+.p_select
+{
+    margin-left: 0px;
+    margin-bottom: 20px!important;
+}
+.p_div1_input2
+{
+    padding: 15px 10px;
+}
+.p_div1_inputp
+{
+    margin: 20px 0;
+}
+.crt_btn
+{
+    
+}

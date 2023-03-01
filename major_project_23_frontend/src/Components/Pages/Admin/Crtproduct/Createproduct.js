@@ -14,6 +14,7 @@ function Createproduct() {
   const [name,setname] = useState("")
   const [description,setdescription] = useState("")
   const [price,setprice] = useState("")
+  const [photo,setphoto] = useState("")
   const [quantity,setquantity] = useState("")
   const [shipping,setshipping] = useState("")
 
@@ -37,6 +38,12 @@ function Createproduct() {
   },[])
 
 
+  const handleCreate = async() => {
+    
+  }
+
+
+
   return (
     <Layout title={'Hidden Brands - Create products'}>
 
@@ -57,6 +64,28 @@ function Createproduct() {
               ))
             }
             </Select>
+            <div className='p_div'>
+            <label className='p_label'>
+            {photo ? photo.name : "Upload image"}
+            <input type="file" name="photo" accept='image/*' hidden onChange={(e) => setphoto(e.target.files[0])}/>
+            </label>
+            </div>
+            <div>
+            {photo && (
+              <img src={URL.createObjectURL(photo)} alt="product-photo" height={'200px'} style={{height:"200px", marginLeft:"30px"}}/>
+            )}
+            </div>
+            <div className='p_div1'>
+               <input type="text"  className='p_div1_input1' value={name} placeholder="Enter the product name" onChange={(e) => setname(e.target.value)}/><br />
+               <textarea name="description" className='p_div1_texta' cols="30" rows="10" value={description} placeholder='Enter the product description' onChange={(e) => setname(e.target.value)}></textarea>
+               <input type="number" placeholder='Enter the product price' className='p_div1_input2 p_div1_inputp' name="price"  value={price} onChange={(e) => setname(e.target.value)}/>
+               <input type="number" placeholder='Enter the product quantity' className='p_div1_input2 ' name="quantity" value={quantity} onChange={(e) => setname(e.target.value)}/>
+               <Select className='p_select' bordered={false} placeholder="select shipping" showSearch size='large' onChange={(value) => setshipping(value)}>
+                  <Option value="0">No</Option>
+                  <Option value="1">Yes</Option>
+               </Select>
+            </div>
+            <button className='crt_btn' onClick={handleCreate}>Create</button>
           </div>
         </div>
 
