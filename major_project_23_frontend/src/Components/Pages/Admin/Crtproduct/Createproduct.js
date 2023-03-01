@@ -85,7 +85,7 @@ function Createproduct() {
             <Select bordered={false} showSearch size="large" placeholder="select a category" onChange={(value) => {setcategories(value)}} >
             {
               categories.map(c => (
-                <Option key={c._id} value={c.name}>{c.name}</Option>
+                <Option key={c._id} value={c._id}>{c.name}</Option>
               ))
             }
             </Select>
