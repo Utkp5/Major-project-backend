@@ -50,9 +50,37 @@ function Createcategory() {
 
 
   //update category
-  const handleUpdate = async() => {
+  const handleUpdate = async(e) => {
     try {
-      
+      e.preventDefault();
+      const {data} = await axios.put(`http://localhost:5000/api/category/Update-category/${selected._id}`, {name:updatedName})
+      if (data.success) {
+        toast.success(`${name} is Updated successfully`) 
+        setselected(null);
+        setupdatedName("");
+        setvisible(false);
+        getcategories();
+      }
+      else {
+        toast.error(data.message);  
+      }
+    } catch (error) {
+      console.log(error);
+      toast.error("Something went wrong");
+    }
+  }
+
+  //delete category
+  const handleDelete = async(pId) => {
+    try {
+      const {data} = await axios.delete(`http://localhost:5000/api/category/Delete-category/${pId}`)
+      if (data.success) {
+        toast.success(`Category is Deleted successfully`) 
+        getcategories();
+      }
+      else {
+        toast.error(data.message);  
+      }
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
@@ -60,11 +88,11 @@ function Createcategory() {
   }
 
 
-
-
   useEffect(() => {
     getcategories();
   }, []);
+
+
 
   return (
     <Layout title={"Hidden Brands - Create Category"}>
@@ -94,8 +122,8 @@ function Createcategory() {
                     <tr>
                       <td key={c._id} className="admin_td">{c.name}</td>
                       <td className="admin_td">
-                      <button className="admin_btn" onClick={() => {setvisible(true); setupdatedName(c.name)}}>Edit</button>
-                      <button className="admin_btn admin_btn_d">Delete</button>
+                      <button className="admin_btn" onClick={() => {setvisible(true); setupdatedName(c.name); setselected(c)}}>Edit</button>
+                      <button className="admin_btn admin_btn_d" onClick={() => handleDelete(c._id) }>Delete</button>
                       </td>
                     </tr>
                   </>

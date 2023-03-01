@@ -34,3 +34,11 @@ tr:hover {background-color: #ddd;}
   color: lavender;
   margin-left: 20px;
 }
+.admin_btn:active{
+  background-color: black;
+  color: lavender;
+}
+.admin_btn_d:active{
+  background-color: black;
+  color: lavender;
+}
