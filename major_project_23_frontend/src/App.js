@@ -22,7 +22,7 @@ const Createcategory = lazy(() => import('./Components/Pages/Admin/Crtcategory/C
 const Order = lazy(() => import('./Components/Pages/User/Order')) ;
 const Profile = lazy(() => import ('./Components/Pages/User/Profile')) ;
 const Users = lazy(() => import('./Components/Pages/Admin/Users/Users'));
-
+const Products = lazy(() => import('./Components/Pages/Admin/Products'));
 
 function App() {
   return (
@@ -40,6 +40,7 @@ function App() {
               <Route  exact path='admin' element={<Admindashboard />}/>   
               <Route  exact path='admin/Create-products' element={<Createproduct />}/>   
               <Route  exact path='admin/Create-category' element={<Createcategory />}/>   
+              <Route  exact path='admin/Products' element={<Products />}/>   
               <Route  exact path='admin/Users' element={<Users />}/>   
           </Route>   
           <Route  exact path='/About' element={<About />}/>   
