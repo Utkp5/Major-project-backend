@@ -42,6 +42,7 @@ function App() {
               <Route  exact path='admin/Create-category' element={<Createcategory />}/>   
               <Route  exact path='admin/Products' element={<Products />}/>   
               <Route  exact path='admin/Users' element={<Users />}/>   
+              
           </Route>   
           <Route  exact path='/About' element={<About />}/>   
           <Route  exact path='/Contact' element={<Contact />}/>   

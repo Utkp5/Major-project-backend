@@ -2,10 +2,10 @@ import React, { useEffect, useState } from "react";
 import Adminmenu from "../../Layouts/Adminmenu/Adminmenu.js";
 import Layout from "../../Layouts/Layout/Layout";
 import "./Admindashboard.css";
-import axios from "axios";
-import { toast } from "react-hot-toast";
 import "../Admin/Crtproduct/Createproduct.css";
 import { Link } from "react-router-dom";
+import axios from "axios";
+import { toast } from "react-hot-toast";
 
 function Products() {
 
@@ -38,11 +38,10 @@ function Products() {
 
         <div className="admin_m_sub1 font_user">
           <h2 className="admin_m_h2">All Products</h2>
-
           <div className="allproducts">
            {products?.map((p) => (
                  <Link key={p._id} to={`/Dashboard/admin/Products/${p.slug}`}>
-                 <h3>Name : {p.name}</h3>
+                 <h3>{p.name}</h3>
                  </Link>
             ))
            }
