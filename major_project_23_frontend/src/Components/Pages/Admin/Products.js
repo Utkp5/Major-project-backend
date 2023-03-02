@@ -9,15 +9,14 @@ import { toast } from "react-hot-toast";
 
 function Products() {
 
-    const [products,setproduct] = useState([]);
+    const [prods,setprods] = useState([]);
 
     const getProducts = async () => {
         try {
             
             const {data} = await axios.get('http://localhost:5000/api/product/Get-product')
-            if (data?.success) {
-                setproduct(data?.Products);
-            }
+            console.log(data);
+            setprods(data.getproducts);
         } catch (error) {
             console.log(error);
             toast.error("Something went wrong");
@@ -39,9 +38,9 @@ function Products() {
         <div className="admin_m_sub1 font_user">
           <h2 className="admin_m_h2">All Products</h2>
           <div className="allproducts">
-           {products?.map((p) => (
-                 <Link key={p._id} to={`/Dashboard/admin/Products/${p.slug}`}>
-                 <h3>{p.name}</h3>
+           {prods && prods?.map((pd) => (
+                 <Link key={pd._id} to={`/Dashboard/admin/Products/${pd.slug}`}>
+                 <h3>{pd.name}</h3>
                  </Link>
             ))
            }

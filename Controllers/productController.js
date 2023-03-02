@@ -55,12 +55,12 @@ export const getProductController = async(req,res) => {
 
     try {
         
-        const products = await productModel.findOne({}).populate("category").select("-photo").limit(12).sort({createdAt:-1});
+        const getproducts = await productModel.find({}).populate("category").select("-photo").limit(12).sort({createdAt:-1});
         return res.status(200).send({
             success:true,
             message: `all Products`,
-            totalProducts: products.length,
-            products
+            totalProducts: getproducts.length,
+            getproducts
         });
 
     } catch (error) {
