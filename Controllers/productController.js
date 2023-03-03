@@ -22,7 +22,7 @@ export const createProductController = async(req,res) => {
                 return res.status(401).send({error : 'category is rrquired'})
             case !quantity: 
                 return res.status(401).send({error : 'quantity is rrquired'})
-            case !photo && photo.size > 1000000: 
+            case photo && photo.size > 1000000: 
                 return res.status(401).send({error : 'photo is rrquired and should be less then 1mb'})
         }
 
@@ -49,7 +49,7 @@ export const createProductController = async(req,res) => {
 
 }
 
-//get product
+//get all product
 
 export const getProductController = async(req,res) => {
 
@@ -101,7 +101,7 @@ export const productPhotoController = async(req,res) => {
 
     try {
         
-        const product = productModel.findById(req.params.pid).select("photo");
+        const product = await productModel.findById(req.params.pid).select("photo");
         if(product.photo.data) {
             res.set("Content-type", product.photo.contentType);
             return res.status(200).send(product.photo.data);

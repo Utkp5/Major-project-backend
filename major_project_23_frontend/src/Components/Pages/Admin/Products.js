@@ -41,7 +41,7 @@ function Products() {
           {prods?.map((p) => (
             <Link key={p._id} to={`/Dashboard/admin/Products/${p.slug}`} className="product_link">
               <div className="card" style={{ width: "18rem" }}>
-                <img src={`http://localhost:5000/api/product/product-photo/${p._id}`} className="card_img" alt={p.name}/>
+                <img src={`http://localhost:5000/api/product/Product-photo/${p._id}`} className="card_img" alt={p.name}/>
                 <div className="card_body">
                   <h5 className="card_title">{p.name}</h5>
                   <p  className="card_des">{p.description}</p>
