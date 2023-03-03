@@ -18,8 +18,8 @@ router.post("/Create-product", requireSignIn, isAdmin, formidable(), createProdu
 //update product
 router.put("/Update-product/:pid", requireSignIn, isAdmin, formidable(), updateProductController);
 
-//get product
-router.get("/Get-product/:slug", getProductController);
+//get all product
+router.get("/Get-product/", getProductController);
 
 //get single product
 router.get("/Single-product/:slug", singleProductController);
