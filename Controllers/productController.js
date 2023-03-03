@@ -49,8 +49,8 @@ export const createProductController = async(req,res) => {
 
 }
 
-//get all product
 
+//get all product
 export const getProductController = async(req,res) => {
 
     try {
@@ -73,8 +73,8 @@ export const getProductController = async(req,res) => {
 
 }
 
-//get single product
 
+//get single product
 export const singleProductController = async(req,res) => {
 
     try {
@@ -95,8 +95,8 @@ export const singleProductController = async(req,res) => {
     }
 }
 
-//get photo
 
+//get photo
 export const productPhotoController = async(req,res) => {
 
     try {
@@ -116,8 +116,8 @@ export const productPhotoController = async(req,res) => {
 
 }
 
-//delete product
 
+//delete product
 export const deleteProductController = async(req,res) => {
 
     try {
@@ -140,7 +140,6 @@ export const deleteProductController = async(req,res) => {
 
 
 //update product
-
 export const updateProductController = async(req,res) => {
 
     try {
