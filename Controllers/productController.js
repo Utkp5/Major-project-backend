@@ -102,7 +102,7 @@ export const productPhotoController = async(req,res) => {
     try {
         
         const product = productModel.findById(req.params.pid).select("photo");
-        if (product.photo.data) {
+        if(product.photo.data) {
             res.set("Content-type", product.photo.contentType);
             return res.status(200).send(product.photo.data);
         }

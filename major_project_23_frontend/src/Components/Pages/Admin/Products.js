@@ -38,12 +38,17 @@ function Products() {
         <div className="admin_m_sub1 font_user">
           <h2 className="admin_m_h2">All Products</h2>
           <div className="allproducts">
-           {prods && prods?.map((pd) => (
-                 <Link key={pd._id} to={`/Dashboard/admin/Products/${pd.slug}`}>
-                 <h3>{pd.name}</h3>
-                 </Link>
-            ))
-           }
+          {prods?.map((p) => (
+            <Link key={p._id} to={`/Dashboard/admin/Products/${p.slug}`} className="product_link">
+              <div className="card" style={{ width: "18rem" }}>
+                <img src={`http://localhost:5000/api/product/product-photo/${p._id}`} className="card_img" alt={p.name}/>
+                <div className="card_body">
+                  <h5 className="card_title">{p.name}</h5>
+                  <p  className="card_des">{p.description}</p>
+                </div>
+              </div>
+            </Link>
+          ))}
           </div>
 
         </div>
