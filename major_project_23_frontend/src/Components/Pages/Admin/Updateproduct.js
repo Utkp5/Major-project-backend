@@ -75,12 +75,27 @@ function Updateproduct() {
       productData.append("category", category);
       const {data} = axios.put(`http://localhost:5000/api/product/Update-product/${id}`, productData);
       if (data.success) {
-        toast.success('Product updated successfully')
+          toast.success('Product updated successfully')
+          navigate('/Dashboard/admin/products')
+        }
+        else {
+            toast.error(data.message)
+            toast.error("Something went wrong");
+      }
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+
+  //delete product
+  const handleDelete = async() => {
+    try {
+        let answer = window.prompt('Are you sure you wnat to delete this product');
+        if(!answer) return;
+        const {data} = axios.delete(`http://localhost:5000/api/product/Delete-product/${id}`)
+        toast.success('Product deleted successfully');
         navigate('/Dashboard/admin/products')
-      }
-      else {
-        toast.error(data?.message)
-      }
     } catch (error) {
       console.log(error);
       toast.error("Something went wrong");
@@ -134,6 +149,7 @@ function Updateproduct() {
             </div>
             <div className='crt_btn_div'>
             <button className='crt_btn' onClick={handleUpdate}>Update product</button>
+            <button className='crt_btn' onClick={handleDelete}>Delete product</button>
             </div>
           </div>
         </div>

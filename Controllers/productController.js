@@ -163,7 +163,7 @@ export const updateProductController = async(req,res) => {
                 return res.status(401).send({error : 'photo is rrquired and should be less then 1mb'})
         }
 
-        const products = new productModel.findByIdAndUpdate({...req.fields, slug:slugify(name)},{new:true});
+        const products = await productModel.findByIdAndUpdate(req.params.pid,{...req.fields, slug:slugify(name)},{new:true});
         if (photo) {
             products.photo.data = fs.readFileSync(photo.path);
             products.photo.contentType = photo.type;

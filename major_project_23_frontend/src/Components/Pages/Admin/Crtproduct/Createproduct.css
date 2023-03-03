@@ -52,9 +52,17 @@
     box-shadow: 2px 2px 6px 1px black;
     cursor: pointer;
 }
+.crt_btn:active {
+    background-color: black;
+    color: whitesmoke;
+}
 .crt_btn_div
 {
     margin-left: 30px;
+    display: flex;
+    flex-direction: row;
+    width: 50vw;
+    justify-content: space-around;
 }
 .allproducts
 {
