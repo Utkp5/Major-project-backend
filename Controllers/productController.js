@@ -79,7 +79,7 @@ export const singleProductController = async(req,res) => {
 
     try {
         
-        const product = await categoryModel.find({slug:req.params.slug}).populate("category").select("-photo") ;
+        const product = await productModel.findOne({slug:req.params.slug}).populate("category").select("-photo") ;
         return res.status(200).send({
             success:true,
             message:'Here is product',
@@ -159,7 +159,7 @@ export const updateProductController = async(req,res) => {
                 return res.status(401).send({error : 'category is rrquired'})
             case !quantity: 
                 return res.status(401).send({error : 'quantity is rrquired'})
-            case !photo && photo.size > 1000000: 
+            case photo && photo.size > 1000000: 
                 return res.status(401).send({error : 'photo is rrquired and should be less then 1mb'})
         }
 
