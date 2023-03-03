@@ -1,0 +1,26 @@
+.parent {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    grid-template-rows: 1fr;
+    grid-column-gap: 0px;
+    border: 2px solid ;
+    grid-row-gap: 0px;
+}
+.div1
+{
+ border: 2px solid green;   
+}
+.div2
+{
+    border: 2px solid red;   
+}
+.div_sub2
+{
+    border: 2px solid orange;
+}
+.home_h4{
+    text-align: center;
+    margin-bottom: 10x;
+    margin-bottom: 28px;
+    font-size: x-large;
+}
