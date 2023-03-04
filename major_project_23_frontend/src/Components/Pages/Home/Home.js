@@ -44,10 +44,7 @@ function Home() {
     }
 }
 
-  useEffect(() => {
-    getProducts();
-  },[])
-
+  
 
 
 //filter by category
@@ -61,6 +58,28 @@ function Home() {
     setChecked(all);
   }
 
+
+  useEffect(() => {
+    if (!checked.length || !radio.length) getProducts();
+  }, [checked.length, radio.length]);
+
+  useEffect(() => {
+    if (checked.length || radio.length) filterProduct();
+  }, [checked, radio]);
+
+
+  //get filterd product
+  const filterProduct = async () => {
+    try {
+      const { data } = await axios.get("http://localhost:5000/api/product/Product-filter", {
+        checked,
+        radio,
+      });
+      setprods(data?.products);
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
 
   return (
@@ -95,7 +114,8 @@ function Home() {
                   <img src={`http://localhost:5000/api/product/Product-photo/${p._id}`} className="card_img" alt={p.name}/>
                   <div className="card_body">
                     <h4 className="card_title">{p.name}</h4>
-                    <p  className="card_des">{p.description}</p>
+                    <p  className="card_des">{p.description.substring(0,30)}...</p>
+                    <p  className="card_price">₹&nbsp;{p.price}</p>
                     <button className="card_btn">More details</button>
                     <button className="card_btn card_bt">Add to cart</button>
                   </div>
