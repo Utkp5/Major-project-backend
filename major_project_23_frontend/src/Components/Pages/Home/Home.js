@@ -12,7 +12,7 @@ function Home() {
   // const [auth,setauth] = useAuth();
   const [prods,setprods] = useState([]);
   const [categories,setcategories] = useState([]);
-  const [checked, setChecked] = useState([]);
+  const [checked, setchecked] = useState([]);
   const [radio, setradio] = useState([]);
 
 
@@ -33,6 +33,7 @@ function Home() {
     // eslint-disable-next-line
   },[])
 
+
   //display products
   const getProducts = async () => {
     try {
@@ -45,6 +46,9 @@ function Home() {
 }
 
   
+useEffect(() => {
+  if (!checked.length || !radio.length) getProducts();
+}, [checked.length, radio.length]);
 
 
 //filter by category
@@ -55,31 +59,25 @@ function Home() {
     } else {
       all = all.filter((c) => c !== id);
     }
-    setChecked(all);
+    setchecked(all);
   }
-
-
-  useEffect(() => {
-    if (!checked.length || !radio.length) getProducts();
-  }, [checked.length, radio.length]);
-
-  useEffect(() => {
-    if (checked.length || radio.length) filterProduct();
-  }, [checked, radio]);
-
 
   //get filterd product
   const filterProduct = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/product/Product-filter", {
+      const { data } = await axios.post("http://localhost:5000/api/product/Product-filter", {
         checked,
         radio,
       });
-      setprods(data?.products);
+      setprods(data.products);
     } catch (error) {
       console.log(error);
     }
   };
+
+  useEffect(() => {
+    if (checked.length || radio.length) filterProduct();
+  }, [checked, radio]);
 
 
   return (
