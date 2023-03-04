@@ -1,56 +1,68 @@
 .parent {
-    display: grid;
-    grid-template-columns: 1fr 4fr;
-    grid-template-rows: 1fr;
-    grid-column-gap: 0px;
-    border: 2px solid ;
-    grid-row-gap: 0px;
+  display: grid;
+  grid-template-columns: 1fr 4fr;
+  grid-template-rows: 1fr;
+  grid-column-gap: 0px;
+  border: 2px solid;
+  grid-row-gap: 0px;
 }
-.div1
-{
- border: 2px solid green;   
+.div1 {
+  border: 2px solid green;
 }
-.div2
-{
-    border: 2px solid red;   
+.div2 {
+  border: 2px solid red;
 }
-.div_sub2
-{
-    border: 2px solid orange;
-    display: flex;
-    flex-wrap: wrap;
-    padding-left: 30px;
+.div_sub2 {
+  border: 2px solid orange;
+  display: flex;
+  flex-wrap: wrap;
+  padding-left: 30px;
 }
-.home_h4{
-    text-align: center;
-    margin-bottom: 10x;
-    margin-bottom: 28px;
+.home_h4 {
     font-size: x-large;
+    margin: 12px 12px;
+}
+.home_h4p
+{
+    font-size: x-large;
+    text-align: center;
+    margin: 20px;
 }
 .card {
-    margin: 20px 20px;
-    padding: 7px 7px;
-    box-shadow: 0px 0px 5px 3px grey;
+  margin: 20px 20px;
+  padding: 7px 7px;
+  box-shadow: 0px 0px 5px 3px grey;
 }
-.card_body
-{
-    margin-top: 10px;
+.card_body {
+  margin-top: 10px;
 }
-.card_img
-{
-    width: 20vw;
+.card_img {
+  width: 20vw;
 }
-.card_bt
-{
-   margin-left: 8px;
+.card_bt {
+  margin-left: 8px;
 }
-
-.card_btn
+.card_btn {
+  padding: 9px 20px;
+  background: blue;
+  color: aliceblue;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
+.filter
 {
-    padding: 9px 20px;
-    background: blue;
-    color: aliceblue;
-    border: none;
-    cursor: pointer;
-    border-radius: 3px;
+    display: flex;
+    flex-direction: column;
+}
+.checkb, .radio
+{
+    /* padding: 12px 9px; */
+    margin: 4px 8px;
+    font-size: larger;
+}
+.ant-radio-wrapper
+{
+    font-size: larger;
+    margin: 4px 10px;
 }

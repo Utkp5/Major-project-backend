@@ -2,15 +2,19 @@ import React, { useEffect, useState } from "react";
 // import { useAuth } from "../../Context/auth";
 import Layout from "../../Layouts/Layout/Layout";
 import "./Home.css";
-import { Checkbox } from "antd";
+import { Checkbox, Radio } from "antd";
 import axios from "axios";
+import { Prices } from "../../Prices";
 // import { toast } from "react-hot-toast";
 
 function Home() {
 
   // const [auth,setauth] = useAuth();
   const [prods,setprods] = useState([]);
-  const [categories,setcategories] = useState([])
+  const [categories,setcategories] = useState([]);
+  const [checked, setChecked] = useState([]);
+  const [radio, setradio] = useState([]);
+
 
   //display category
   const getallcategories = async () => {
@@ -45,9 +49,18 @@ function Home() {
   },[])
 
 
-  const handleFilter = async() => {
-    
+
+//filter by category
+  const handleFilter = (value, id) => {
+    let all = [...checked];
+    if (value) {
+      all.push(id);
+    } else {
+      all = all.filter((c) => c !== id);
+    }
+    setChecked(all);
   }
+
 
 
   return (
@@ -55,17 +68,26 @@ function Home() {
       <div className="parent">
 
          <div className="div1">
-            <h4 className="home_h4">Filter products</h4>
-            ok
-            <div>
+            <h4 className="home_h4">Filter by products</h4>
+            <div className="filter">
             {categories?.map((c) => (
-              <Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)}>{c.name}</Checkbox>
+              <Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)} className="checkb">{c.name}</Checkbox>
             ))}
+            </div>
+            <h4 className="home_h4">Filter by price</h4>
+            <div className="filter">
+            <Radio.Group onChange={(e) => setradio(e.target.value)} className="radio">
+              {Prices?.map((p) => (
+                <div key={p._id}>
+                  <Radio value={p.array}>{p.name}</Radio>
+                </div>
+              ))}
+            </Radio.Group>
             </div>
          </div>
 
          <div className="div2">
-            <h4 className="home_h4">Products</h4>
+            <h4 className="home_h4p">Products</h4>
 
             <div className="div_sub2">
             {prods?.map((p) => (
