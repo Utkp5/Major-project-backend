@@ -17,10 +17,40 @@
 .div_sub2
 {
     border: 2px solid orange;
+    display: flex;
+    flex-wrap: wrap;
+    padding-left: 30px;
 }
 .home_h4{
     text-align: center;
     margin-bottom: 10x;
     margin-bottom: 28px;
     font-size: x-large;
+}
+.card {
+    margin: 20px 20px;
+    padding: 7px 7px;
+    box-shadow: 0px 0px 5px 3px grey;
+}
+.card_body
+{
+    margin-top: 10px;
+}
+.card_img
+{
+    width: 20vw;
+}
+.card_bt
+{
+   margin-left: 8px;
+}
+
+.card_btn
+{
+    padding: 9px 20px;
+    background: blue;
+    color: aliceblue;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
 }
