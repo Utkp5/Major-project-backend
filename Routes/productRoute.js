@@ -3,6 +3,9 @@ const router = express.Router();
 import { createProductController, 
          deleteProductController, 
          getProductController, 
+         productCountController, 
+         productFilterController, 
+         productListController, 
          productPhotoController, 
          singleProductController,
          updateProductController
@@ -29,5 +32,14 @@ router.get("/Product-photo/:pid", productPhotoController);
 
 //delete product
 router.delete("/Delete-product/:pid", deleteProductController)
+
+//product filter
+router.get("Product-filter", productFilterController)
+
+//product count
+router.get("Product-count", productCountController)
+
+//product list
+router.get("Product-list", productListController)
 
 export default router
