@@ -9,11 +9,14 @@ import { Prices } from "../../Prices";
 
 function Home() {
 
-  // const [auth,setauth] = useAuth();
   const [prods,setprods] = useState([]);
   const [categories,setcategories] = useState([]);
   const [checked, setchecked] = useState([]);
   const [radio, setradio] = useState([]);
+  const [total, setTotal] = useState(0);
+  const [page, setPage] = useState(1);
+  const [loading, setLoading] = useState(false);
+
 
 
   //display category
@@ -30,17 +33,21 @@ function Home() {
 
   useEffect(() => {
     getallcategories();
+    getTotal();
     // eslint-disable-next-line
   },[])
+
 
 
   //display products
   const getProducts = async () => {
     try {
-        
-        const {data} = await axios.get('http://localhost:5000/api/product/Get-product')
+        setLoading(true)
+        const {data} = await axios.get(`http://localhost:5000/api/product/Get-product/${page}`);
+        setLoading(false)
         setprods(data.getproducts);
     } catch (error) {
+        setLoading(false)
         console.log(error);
     }
 }
@@ -80,13 +87,45 @@ useEffect(() => {
   }, [checked, radio]);
 
 
+  //get total 
+  const getTotal = async () => {
+    try {
+      const { data } = await axios.get("http://localhost:5000/api/product/product-count");
+      setTotal(data?.total);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+
+  useEffect(() => {
+    if (page === 1) return;
+    loadMore();
+  }, [page]);
+
+  //load more
+  const loadMore = async () => {
+    try {
+      setLoading(true);
+      const { data } = await axios.get(`http://localhost:5000/api/product/Product-list/${page}`);
+      setLoading(false);
+      setprods([...prods, ...data?.products]);
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+
+
+
   return (
     <Layout title={"Hidden Brands - Shop now"}>
       <div className="parent">
 
          <div className="div1">
             <h4 className="home_h4">Filter by products</h4>
-            <div className="filter">
+            <div className="filter filterC">
             {categories?.map((c) => (
               <Checkbox key={c._id} onChange={(e) => handleFilter(e.target.checked, c._id)} className="checkb">{c.name}</Checkbox>
             ))}
@@ -101,6 +140,7 @@ useEffect(() => {
               ))}
             </Radio.Group>
             </div>
+            <button className="filter_btn">Clear filter</button>
          </div>
 
          <div className="div2">
@@ -121,7 +161,19 @@ useEffect(() => {
             ))}
             </div>
          </div>
-
+         <div>
+         {prods && prods.length < total && (
+          <button
+            className="load_btn"
+            onClick={(e) => {
+              e.preventDefault();
+              setPage(page + 1);
+            }}
+          >
+            {loading ? "Loading ..." : "Loadmore"}
+          </button>
+        )}
+         </div>
       </div>
     </Layout>
   );

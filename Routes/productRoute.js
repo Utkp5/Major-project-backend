@@ -40,6 +40,6 @@ router.post("/Product-filter", productFilterController)
 router.get("/Product-count", productCountController)
 
 //product list
-router.get("/Product-list", productListController)
+router.get("/Product-list/:page", productListController)
 
 export default router

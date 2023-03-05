@@ -19,21 +19,19 @@
   padding-left: 30px;
 }
 .home_h4 {
-    font-size: x-large;
-    margin: 12px 12px;
+  font-size: x-large;
+  margin: 12px 12px;
 }
-.home_h4p
-{
-    font-size: x-large;
-    text-align: center;
-    margin: 20px;
+.home_h4p {
+  font-size: x-large;
+  text-align: center;
+  margin: 20px;
 }
 .card {
   margin: 20px 20px;
   padding: 7px 7px;
   box-shadow: 0px 0px 5px 3px grey;
 }
-
 .card_body {
   margin-top: 10px;
 }
@@ -51,19 +49,31 @@
   cursor: pointer;
   border-radius: 3px;
 }
-.filter
-{
-    display: flex;
-    flex-direction: column;
+.filter {
+  display: flex;
+  flex-direction: column;
 }
-.checkb, .radio
+.filterC
 {
-    /* padding: 12px 9px; */
-    margin: 4px 8px;
-    font-size: larger;
+  margin-left: 11px;
 }
-.ant-radio-wrapper
+.checkb,.radio {
+  /* padding: 12px 9px; */
+  margin: 4px 8px;
+  font-size: larger;
+}
+.ant-radio-wrapper {
+  font-size: larger;
+  margin: 4px 10px;
+}
+.filter_btn
 {
-    font-size: larger;
-    margin: 4px 10px;
+  background: crimson;
+  padding: 9px 56px;
+  margin-left: 20px;
+  margin-top: 15px;
+  color: aliceblue;
+  border: none;
+  cursor: pointer;
+  box-shadow: 0px 2px 2px 1px black;
 }
