@@ -14,8 +14,6 @@ function Home() {
   const [checked, setchecked] = useState([]);
   const [radio, setradio] = useState([]);
   const [total, setTotal] = useState(0);
-  const [page, setPage] = useState(1);
-  const [loading, setLoading] = useState(false);
 
 
 
@@ -42,12 +40,9 @@ function Home() {
   //display products
   const getProducts = async () => {
     try {
-        setLoading(true)
-        const {data} = await axios.get(`http://localhost:5000/api/product/Get-product/${page}`);
-        setLoading(false)
+        const {data} = await axios.get(`http://localhost:5000/api/product/Get-product/`);
         setprods(data.getproducts);
     } catch (error) {
-        setLoading(false)
         console.log(error);
     }
 }
@@ -55,6 +50,7 @@ function Home() {
   
 useEffect(() => {
   if (!checked.length || !radio.length) getProducts();
+  // eslint-disable-next-line
 }, [checked.length, radio.length]);
 
 
@@ -84,6 +80,7 @@ useEffect(() => {
 
   useEffect(() => {
     if (checked.length || radio.length) filterProduct();
+    // eslint-disable-next-line
   }, [checked, radio]);
 
 
@@ -98,30 +95,13 @@ useEffect(() => {
   };
 
 
-  useEffect(() => {
-    if (page === 1) return;
-    loadMore();
-  }, [page]);
-
-  //load more
-  const loadMore = async () => {
-    try {
-      setLoading(true);
-      const { data } = await axios.get(`http://localhost:5000/api/product/Product-list/${page}`);
-      setLoading(false);
-      setprods([...prods, ...data?.products]);
-    } catch (error) {
-      console.log(error);
-      setLoading(false);
-    }
-  };
-
-
+  
+  
 
 
   return (
     <Layout title={"Hidden Brands - Shop now"}>
-      <div className="parent">
+    <div className="parent">
 
          <div className="div1">
             <h4 className="home_h4">Filter by products</h4>
@@ -160,23 +140,48 @@ useEffect(() => {
                 </div>
             ))}
             </div>
-         </div>
-         <div>
-         {prods && prods.length < total && (
-          <button
-            className="load_btn"
-            onClick={(e) => {
-              e.preventDefault();
-              setPage(page + 1);
-            }}
-          >
-            {loading ? "Loading ..." : "Loadmore"}
-          </button>
-        )}
-         </div>
+
+            
+        </div>
       </div>
     </Layout>
   );
 }
 
+
 export default Home;
+
+//   <div className="load_div">
+//   {prods && prods.length < total && (
+//    <button
+//      className="load_btn"
+//      onClick={(e) => {
+//        e.preventDefault();
+//        setPage(page + 1);
+//      }}
+//    >
+//      {loading ? "Loading ..." : "Loadmore"}
+//    </button>
+//  )}
+//   </div>
+
+
+
+    // useEffect(() => {
+    //   if (page === 1) return;
+    //   loadMore();
+    //   // eslint-disable-next-line
+    // }, [page]);
+  
+    // //load more
+    // const loadMore = async () => {
+    //   try {
+    //     setLoading(true);
+    //     const { data } = await axios.get(`http://localhost:5000/api/product/Product-list/${page}`);
+    //     setLoading(false);
+    //     setprods([...prods, ...data?.products]);
+    //   } catch (error) {
+    //     console.log(error);
+    //     setLoading(false);
+    //   }
+    // };
