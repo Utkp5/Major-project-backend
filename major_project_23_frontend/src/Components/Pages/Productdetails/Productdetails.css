@@ -1,0 +1,47 @@
+.pd_card_img
+{
+    width: 30vw;
+}
+.pd_container
+{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px 0;
+}
+.pd1_container
+{
+    margin-top: 20px;
+}
+.Ptext_center
+{
+    text-align: center;
+    font-size: x-large;
+}
+.pd_btn
+{
+   padding: 8px 24px;
+   background: black;
+   border-radius: 2px;
+   cursor: pointer;
+   color: aliceblue;
+   border: none;
+   box-shadow: 1px 2px 3px 1px rgb(68, 13, 13);
+}
+.pd_btn:hover
+{
+    background-color: crimson;
+    color: aliceblue;
+    transition: all 0.5s;
+    box-shadow: 1px 2px 3px 1px crimson;
+    border: none;
+
+}
+.div_none
+{
+    display: none;
+}
+hr 
+{
+    margin-top: 80px;
+    margin-bottom: 40px;
+}

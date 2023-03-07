@@ -1,14 +1,15 @@
 import React, { useEffect, useState } from "react";
-// import { useAuth } from "../../Context/auth";
 import Layout from "../../Layouts/Layout/Layout";
 import "./Home.css";
 import { Checkbox, Radio } from "antd";
 import axios from "axios";
 import { Prices } from "../../Prices";
-// import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
+
 
 function Home() {
-
+ 
+  const navigate = useNavigate();
   const [prods,setprods] = useState([]);
   const [categories,setcategories] = useState([]);
   const [checked, setchecked] = useState([]);
@@ -134,7 +135,7 @@ useEffect(() => {
                     <h4 className="card_title">{p.name}</h4>
                     <p  className="card_des">{p.description.substring(0,30)}...</p>
                     <p  className="card_price">₹&nbsp;{p.price}</p>
-                    <button className="card_btn">More details</button>
+                    <button className="card_btn" onClick={() => navigate(`/product/${p.slug}`)}>More details</button>
                     <button className="card_btn card_bt">Add to cart</button>
                   </div>
                 </div>
