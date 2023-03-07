@@ -3,6 +3,7 @@ const router = express.Router();
 import { createProductController, 
          deleteProductController, 
          getProductController, 
+         productCategoryController, 
          productCountController, 
          productFilterController, 
          productListController, 
@@ -45,4 +46,8 @@ router.get("/Product-list/:page", productListController)
 
 //similar products
 router.get("/Related-product/:pid/:cid", realtedProductController);
+
+//category wise product
+router.get("/product-category/:slug", productCategoryController);
+
 export default router
