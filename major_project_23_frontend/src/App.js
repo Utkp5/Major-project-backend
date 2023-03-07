@@ -12,7 +12,7 @@ const Signin = lazy(() => import('./Components/Pages/Signin/Signin'));
 const Cart = lazy(() => import('./Components/Pages/Cart/Cart'));
 const Dashboard = lazy(() => import('./Components/Pages/User/Dashboard'));
 const Private = lazy(() => import('./Components/Routes/Private'));
-const Category = lazy(() => import('./Components/Pages/Category/Category'));
+const Categoryproduct = lazy(() => import('./Components/Pages/Category/Categoryproduct'));
 const Admin = lazy(() => import ('./Components/Routes/Admin'));
 const Admindashboard = lazy(() => import ('./Components/Pages/Admin/Admindashboard'));
 const Pagenotfound = lazy(() => import('./Components/Pages/Pagenotfound'));
@@ -25,6 +25,7 @@ const Users = lazy(() => import('./Components/Pages/Admin/Users/Users'));
 const Products = lazy(() => import('./Components/Pages/Admin/Products'));
 const Updateproduct = lazy(() => import('./Components/Pages/Admin/Updateproduct'))
 const Productdetails = lazy(() => import('./Components/Pages/Productdetails/Productdetails'))
+const Categories = lazy(() => import('./Components/Pages/Category/Categories'))
 
 function App() {
   return (
@@ -51,7 +52,8 @@ function App() {
           <Route  exact path='/Signup' element={<Signup />}/>   
           <Route  exact path='/Signin' element={<Signin />}/>  
           <Route  exact path='/Cart' element={<Cart />}/>   
-          <Route  exact path='/Category' element={<Category />} />
+          <Route  exact path='/Categories' element={<Categories />} />
+          <Route  exact path='/Category/:slug' element={<Categoryproduct />} />
           <Route  exact path='/Product/:slug'   element={<Productdetails />} />
           <Route  exact path='/Forgotpassword' element={<Forgotpass />}/>
           <Route  exact path='*' element={<Pagenotfound />}/>   

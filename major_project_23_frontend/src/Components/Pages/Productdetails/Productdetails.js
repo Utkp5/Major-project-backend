@@ -69,7 +69,7 @@ function Productdetails() {
         {relatedProducts.length < 1 && (
           <p className="Ptext_center">No Similar Products found</p>
         )}
-        <div {...relatedProducts.length < 1 ? "div_sub2" : "div_none"}>
+        <div className="pd_divrp">
             {relatedProducts?.map((p) => (
                 <div className="card" style={{ width: "18rem" }}>
                   <img src={`http://localhost:5000/api/product/Product-photo/${p._id}`} className="card_img" alt={p.name}/>

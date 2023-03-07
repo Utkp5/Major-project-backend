@@ -75,7 +75,7 @@
 
   /* Links inside the dropdown */
   .dropdown-content {
-    padding: 12px 23px;
+    padding: 0 10px;
   }
   .dropdown_icon
   {
@@ -96,8 +96,16 @@
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {transition: all 0.7s;}
-  
 
+.cat_li{
+    padding: 10px 0;
+    text-decoration: none;
+}  
+.cat_link
+{
+    text-decoration: none;
+    color: black;
+}
 
 
 .menu_icon

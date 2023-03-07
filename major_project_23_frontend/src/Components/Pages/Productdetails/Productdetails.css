@@ -40,6 +40,10 @@
 {
     display: none;
 }
+.pd_divrp
+{
+    display: flex;
+}
 hr 
 {
     margin-top: 80px;
