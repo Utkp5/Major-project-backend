@@ -48,6 +48,6 @@ router.get("/Product-list/:page", productListController)
 router.get("/Related-product/:pid/:cid", realtedProductController);
 
 //category wise product
-router.get("/product-category/:slug", productCategoryController);
+router.get("/Product-category/:slug", productCategoryController);
 
 export default router

@@ -5,7 +5,7 @@ import { Checkbox, Radio } from "antd";
 import axios from "axios";
 import { Prices } from "../../Prices";
 import { useNavigate } from "react-router-dom";
-
+import { useCart } from "../../Context/cart";
 
 function Home() {
  
@@ -15,6 +15,8 @@ function Home() {
   const [checked, setchecked] = useState([]);
   const [radio, setradio] = useState([]);
   const [total, setTotal] = useState(0);
+  const [cart,setCart] = useCart();
+
 
 
 
@@ -136,7 +138,7 @@ useEffect(() => {
                     <p  className="card_des">{p.description.substring(0,30)}...</p>
                     <p  className="card_price">₹&nbsp;{p.price}</p>
                     <button className="card_btn" onClick={() => navigate(`/product/${p.slug}`)}>More details</button>
-                    <button className="card_btn card_bt">Add to cart</button>
+                    <button className="card_btn card_bt" onClick={() => setCart([...cart,p])}>Add to cart</button>
                   </div>
                 </div>
             ))}

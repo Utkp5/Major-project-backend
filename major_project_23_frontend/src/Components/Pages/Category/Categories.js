@@ -8,7 +8,7 @@ function Categories() {
     const categories = useCategory();
 
   return (
-    <Layout title={"All Categories"}>
+    <Layout title={"Hidden Brands - All Categories"}>
       <div className="container">
         <div className="row">
           {categories.map((c) => (

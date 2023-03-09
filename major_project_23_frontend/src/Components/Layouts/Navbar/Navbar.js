@@ -5,12 +5,15 @@ import { HiMenu } from "react-icons/hi";
 import { HiX } from "react-icons/hi";
 import { HiOutlineChevronDown } from "react-icons/hi";
 import { useAuth } from "../../Context/auth";
+import {Badge} from "antd"
+import { useCart } from "../../Context/cart";
 import useCategory from "../../Hooks/useCategory";
 
 function Navbar() {
 
   const [menu,setmenu] = useState(false);
   const [auth, setAuth] = useAuth();
+  const [cart] = useCart();
   const categories = useCategory();
 
   const handleLogout = () => {
@@ -60,7 +63,7 @@ function Navbar() {
 
               )
         }
-        <li><NavLink to="/Cart" id="a">Cart(0)</NavLink></li>
+        <li><Badge count={cart?.length} showZero><NavLink to="/Cart" id="a">Cart</NavLink></Badge></li>
       </ul>
 
 
