@@ -56,27 +56,27 @@ function Signup() {
           <div class="login">
             <h2 id="sgn_h2">Create Account</h2>
             <div className="signupform">
-              <input className="input_signup" type="text" name="firstName" placeholder="First Name" onChange={(e) => {
+              <input className="input_signup" type="text" value={firstName} placeholder="First Name" onChange={(e) => {
                 setfirstName(e.target.value)
               }} required/>
-              <input className="input_signup" id="input_signup" type="text" name="lastName"  placeholder="Last Name" onChange={(e) => {
+              <input className="input_signup" id="input_signup" type="text" value={lastName}  placeholder="Last Name" onChange={(e) => {
                 setlastName(e.target.value)
               }} required/>
               <br />
-              <input className="input_signup" type="email" name="Email" placeholder="E-mail Address" onChange={(e) => {
+              <input className="input_signup" type="email" value={Email} placeholder="E-mail Address" onChange={(e) => {
                 setEmail(e.target.value)
               }} required/>
-              <input className="input_signup" id="input_passwd" type="password" name="password" placeholder="Password" onChange={(e) => {
+              <input className="input_signup" id="input_passwd" type="password" value={password} placeholder="Password" onChange={(e) => {
                 setpassword(e.target.value)
               }} required/>
               <br />
-              <input className="input_signup" type="number" maxLength="10" name="phone" placeholder="Phone Number" onChange={(e) => {
+              <input className="input_signup" type="number" maxLength="10" value={phone} placeholder="Phone Number" onChange={(e) => {
                 setphone(e.target.value)
               }} required/>
-              <input className="input_signup" id="input_add" type="text" name="address" placeholder="Address" onChange={(e) => {
+              <input className="input_signup" id="input_add" type="text" value={address} placeholder="Address" onChange={(e) => {
                 setaddress(e.target.value)
               }} required/>
-              <input className="input_signup" id="input_ad" type="text" name="answer" placeholder="Your favourite place*" onChange={(e) => {
+              <input className="input_signup" id="input_ad" type="text" value={answer} placeholder="Your favourite place*" onChange={(e) => {
                 setanswer(e.target.value)
               }} required/>
               <div class="remember_form">

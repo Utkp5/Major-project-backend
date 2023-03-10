@@ -23,7 +23,6 @@ function Profile() {
     setEmail(Email);
     setphone(phone);
     setaddress(address);
-
   },[auth?.user])
 
 
@@ -31,9 +30,7 @@ function Profile() {
 
     try {
 
-      const user = {firstName,Email,password,phone,address};
-
-      const res =  await axios.put('http://localhost:5000/api/Profile',{
+      const {data} =  await axios.put('http://localhost:5000/api/Profile',{
           firstName,
           Email,
           password,
@@ -72,19 +69,19 @@ function Profile() {
       <div className='font_user'>
           <h2 className='user_m_sub1'>Profile</h2>
           <div className="profile_form">
-              <input className="profile_input" type="text" name="firstName" placeholder="First Name" onChange={(e) => {
+              <input className="profile_input" type="text" value={firstName} placeholder="First Name" onChange={(e) => {
                 setfirstName(e.target.value)
               }} />
-              <input className="profile_input" type="email" name="Email" placeholder="E-mail Address" onChange={(e) => {
+              <input className="profile_input" type="email" value={Email} placeholder="E-mail Address" onChange={(e) => {
                 setEmail(e.target.value)
-              }} />
-              <input className="profile_input" id="input_passwd" type="password" name="password" placeholder="Password" onChange={(e) => {
+              }} disabled/>
+              <input className="profile_input" id="input_passwd" value={password} type="password" name="password" placeholder="Password" onChange={(e) => {
                 setpassword(e.target.value)
               }} />
-              <input className="profile_input" type="number" maxLength="10" name="phone" placeholder="Phone Number" onChange={(e) => {
+              <input className="profile_input" type="number" maxLength="10" value={phone} placeholder="Phone Number" onChange={(e) => {
                 setphone(e.target.value)
               }} />
-              <input className="profile_input" id="input_add" type="text" name="address" placeholder="Address" onChange={(e) => {
+              <input className="profile_input" id="input_add" type="text" value={address} placeholder="Address" onChange={(e) => {
                 setaddress(e.target.value)
               }} />
               <button type="submit" className="profile_btn" onClick={() => {handleSubmit()}}>Update profile</button>
