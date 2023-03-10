@@ -66,11 +66,8 @@
     font-size: 3.5vh;
     background: transparent;
     color: lavender;
-    border-bottom: 2px solid;
+    border: none;
     text-transform: capitalize;
-    border-top: none;
-    border-right: none;
-    border-left: none;
   }
 
   /* Links inside the dropdown */
@@ -107,6 +104,14 @@
     color: black;
 }
 
+.ant-badge, .ant-scroll-number
+{
+    margin-right: 20px;
+}
+.ant-badge, .ant-badge-count
+{
+    top: -1px!important;
+}
 
 .menu_icon
 {

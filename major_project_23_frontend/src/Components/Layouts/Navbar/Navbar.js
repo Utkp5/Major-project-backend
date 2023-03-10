@@ -40,7 +40,7 @@ function Navbar() {
         <li> <NavLink to="/About" id="a" >About</NavLink> </li>
         <li><NavLink to="/Contact" id="a" >Contact</NavLink></li>
         <div className="dropdown">
-            <li><NavLink to="/Categories" id="a">Category</NavLink></li>
+            <li><NavLink to="/Categories" id="a">Category<HiOutlineChevronDown className="dropdown_icon"/></NavLink></li>
             <div className="dropdown-content">
               <li className="cat_li"><Link className="cat_link" to={"/Categories"}>All Categories</Link></li>
               {categories?.map((c) => (
@@ -62,7 +62,7 @@ function Navbar() {
               </div>
 
               )
-        }
+            }
         <li><Badge count={cart?.length} showZero><NavLink to="/Cart" id="a">Cart</NavLink></Badge></li>
       </ul>
 
