@@ -16,7 +16,7 @@ function Profile() {
   const [phone,setphone] = useState("");
   const [address,setaddress] = useState("");
   
-  
+
   useEffect(() => {
     const {firstName,Email,phone,address} = auth?.user;
     setfirstName(firstName);
@@ -33,15 +33,23 @@ function Profile() {
 
       const user = {firstName,Email,password,phone,address};
 
-      const res =  await axios.post('http://localhost:5000/api/Register',user)
-      // if(res && res.data.success) 
-      // {
-      //   toast.success(res.data && res.data.message);
-      //   Navigate("/Signin")
-      // }
-      // else {
-      //   toast.error(res.data.message);
-      // }
+      const res =  await axios.put('http://localhost:5000/api/Profile',{
+          firstName,
+          Email,
+          password,
+          phone,
+          address,
+      });
+      if (data?.error) {
+        toast.error(data?.error);
+      } else {
+        setauth({ ...auth, user: data?.updatedUser });
+        let ls = localStorage.getItem("auth");
+        ls = JSON.parse(ls);
+        ls.user = data.updatedUser;
+        localStorage.setItem("auth", JSON.stringify(ls));
+        toast.success("Profile Updated Successfully");
+      }
       
     } catch (error) {
       toast.error("Something went wrong")      
