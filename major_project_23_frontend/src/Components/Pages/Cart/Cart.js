@@ -3,11 +3,16 @@ import Layout from "../../Layouts/Layout/Layout";
 import { useCart } from "../../Context/cart";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/auth";
+import DropIn from "braintree-web-drop-in-react";
+import { toast } from "react-hot-toast";
 import "./Cart.css";
 
 function Cart() {
   const [auth, setAuth] = useAuth();
   const [cart, setCart] = useCart();
+  const [clientToken, setClientToken] = useState("");
+  const [instance, setInstance] = useState("");
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   //total price
@@ -35,6 +40,43 @@ function Cart() {
       console.log(error);
     }
   };
+
+  //payment gateway
+  const getToken = async () => {
+    try {
+      const { data } = await axios.get("http://localhost:5000/api/product/Braintree/token");
+      setClientToken(data?.clientToken);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getToken();
+  }, [auth?.token]);
+
+
+  //handle payments
+  const handlePayment = async () => {
+    try {
+      setLoading(true);
+      const { nonce } = await instance.requestPaymentMethod();
+      const { data } = await axios.post("http://localhost:5000/api/product/Braintree/payment", {
+        nonce,
+        cart,
+      });
+      setLoading(false);
+      localStorage.removeItem("cart");
+      setCart([]);
+      navigate("/Dashboard/user/Orders");
+      toast.success("Payment Completed Successfully ");
+    } catch (error) {
+      console.log(error);
+      setLoading(false);
+    }
+  };
+
+
 
   return (
     <Layout title={"Hidden Brands - Your Cart"}>
@@ -80,6 +122,16 @@ function Cart() {
                 )}
               </div>
             )}
+          </div>
+          <div style={{marginTop:"20px"}}>
+          {!clientToken || !cart?.length ? ("") : (
+            <>
+              <DropIn options={{authorization: clientToken, paypal: {flow: "vault",},
+                }}onInstance={(instance) => setInstance(instance)}/>
+
+              <button className="btn_cart" onClick={handlePayment} disabled={loading || !instance || !auth?.user?.address}>{loading ? "Processing ...." : "Make Payment"}</button>
+            </>
+          )}
           </div>
       </div>
     </Layout>

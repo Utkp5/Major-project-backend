@@ -1,5 +1,6 @@
 import productModel from "../Models/products.js";
 import categoryModel from "../Models/category.js";
+import orderModel from "../Models/orders.js";
 import fs from 'fs';
 import slugify from "slugify";
 import braintree from "braintree";
@@ -309,7 +310,7 @@ var gateway = new braintree.BraintreeGateway({
     privateKey: process.env.PAYPAL_PRIVATE_KEY,
   });
 
-  
+
  //payment gateway api token
 export const braintreeTokenController = async (req, res) => {
     try {
@@ -330,7 +331,7 @@ export const braintreeTokenController = async (req, res) => {
   //payment gateway
   export const brainTreePaymentController = async (req, res) => {
     try {
-      const { nonce, cart } = req.body;
+      const { nonce, cart } = req.body;  //api ke ander hi nonce kuch nam hai 
       let total = 0;
       cart.map((i) => {
         total += i.price;
