@@ -65,7 +65,7 @@ function Cart() {
           <div className="cart_total">
             <h2>Cart Summary</h2>
             <hr />
-            <h4 className="cart_total_h4" >Total : ₹&nbsp;{totalPrice()} </h4>
+            <h4 className="cart_total_h4" >Total : ₹&nbsp;{totalPrice()}</h4>
             {auth?.user?.address ? (
                 <div className="mb-3">
                   <h4>Current Address</h4>

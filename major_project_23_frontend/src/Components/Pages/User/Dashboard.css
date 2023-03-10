@@ -71,3 +71,27 @@
 {
     padding: 15px 15px;
 }
+.profile_input
+{
+    padding: 19px 30px;
+    margin: 13px 0;
+    border-radius: 4px;
+}
+.profile_form{
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-left: 30px;
+}
+.profile_btn {
+    padding: 15px 0px;
+    width: 26%;
+    margin-top: 18px;
+    background-color: crimson;
+    color: antiquewhite;
+    cursor: pointer;
+    border-radius: 8px;
+    outline: 0;
+    border: none;
+    font-size: larger;
+}
