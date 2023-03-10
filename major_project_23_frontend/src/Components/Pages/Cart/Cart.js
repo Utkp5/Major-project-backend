@@ -1,14 +1,17 @@
-import React from "react";
+import React,{useEffect, useState} from "react";
 import Layout from "../../Layouts/Layout/Layout";
 import { useCart } from "../../Context/cart";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../../Context/auth";
 import DropIn from "braintree-web-drop-in-react";
+import { UserOutlined } from '@ant-design/icons';
+import { Avatar, Space } from 'antd';
 import { toast } from "react-hot-toast";
+import axios from "axios";
 import "./Cart.css";
 
 function Cart() {
-  const [auth, setAuth] = useAuth();
+  const [auth] = useAuth();
   const [cart, setCart] = useCart();
   const [clientToken, setClientToken] = useState("");
   const [instance, setInstance] = useState("");
@@ -76,13 +79,19 @@ function Cart() {
     }
   };
 
+const url = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg';
 
 
   return (
     <Layout title={"Hidden Brands - Your Cart"}>
       <div className="cart_container">
         <div className="cart_row">
-            <h1 className="cart_row_h1">{`Hello ${auth?.token && auth?.user?.firstName}`}</h1>
+            <h1 className="cart_row_h1">
+              {`Hello ${auth?.token && auth?.user?.firstName}`}
+                <Space size={16} wrap>
+                    <Avatar style={{ backgroundColor: '#87d068' }} icon={<UserOutlined />} />
+                </Space>
+            </h1>
             <h4 className="cart_row_h4">
               {cart?.length? `You Have ${cart.length} items in your cart ${auth?.token ? "" : "please login to checkout"}`: " Your Cart Is Empty"}
             </h4>
@@ -123,13 +132,13 @@ function Cart() {
               </div>
             )}
           </div>
-          <div style={{marginTop:"20px"}}>
+          <div style={{padding:"0px 100px"}}>
           {!clientToken || !cart?.length ? ("") : (
             <>
               <DropIn options={{authorization: clientToken, paypal: {flow: "vault",},
                 }}onInstance={(instance) => setInstance(instance)}/>
 
-              <button className="btn_cart" onClick={handlePayment} disabled={loading || !instance || !auth?.user?.address}>{loading ? "Processing ...." : "Make Payment"}</button>
+              <button className="btn_carts" onClick={handlePayment} disabled={loading || !instance || !auth?.user?.address}>{loading ? "Processing ...." : "Make Payment"}</button>
             </>
           )}
           </div>
