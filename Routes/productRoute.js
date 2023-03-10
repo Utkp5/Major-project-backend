@@ -1,6 +1,6 @@
 import express from 'express';
 const router = express.Router();
-import { createProductController, 
+import { brainTreePaymentController, braintreeTokenController, createProductController, 
          deleteProductController, 
          getProductController, 
          productCategoryController, 
@@ -49,5 +49,11 @@ router.get("/Related-product/:pid/:cid", realtedProductController);
 
 //category wise product
 router.get("/Product-category/:slug", productCategoryController);
+
+//payments routes token
+router.get("/Braintree/token", braintreeTokenController);
+
+//payments gateway
+router.post("/Braintree/payment", requireSignIn, brainTreePaymentController);
 
 export default router
