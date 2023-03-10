@@ -38,3 +38,17 @@
     margin: 15px 0;
     font-size: x-large;
 }
+.btn_carts
+{
+    padding: 12px 30px;
+    margin: 16px 0;
+    background: crimson;
+    color: aliceblue;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;   
+}
+.btn_carts:active
+{
+    background-color: black;
+}

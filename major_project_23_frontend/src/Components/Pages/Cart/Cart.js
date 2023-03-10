@@ -67,17 +67,16 @@ function Cart() {
             <hr />
             <h4 className="cart_total_h4" >Total : ₹&nbsp;{totalPrice()}</h4>
             {auth?.user?.address ? (
-                <div className="mb-3">
-                  <h4>Current Address</h4>
-                  <h5>{auth?.user?.address}</h5>
-                  <button className="btn_" onClick={() => navigate("/Dashboard/user/profile")}>Update Address</button>
+                <div>
+                  <span>Current Address : {auth?.user?.address}</span> <br/>
+                  <button className="btn_carts" onClick={() => navigate("/Dashboard/user/Profile")}>Update Address</button>
                 </div>
             ) : (
-              <div className="mb-3">
+              <div>
                 {auth?.token ? (
-                  <button className="btn" onClick={() => navigate("/Dashboard/user/profile")}>Update Address</button>
+                  <button className="btn_carts" onClick={() => navigate("/Dashboard/user/Profile")}>Update Address</button>
                 ) : (
-                  <button className="btn" onClick={() => navigate("/Signin", {state: "/cart",})}>Plase Login to checkout</button>
+                  <button className="btn_carts" onClick={() => navigate("/Signin", {state: "/Cart",})}>Plase Login to checkout</button>
                 )}
               </div>
             )}

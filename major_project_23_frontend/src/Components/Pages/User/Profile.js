@@ -26,8 +26,7 @@ function Profile() {
   },[auth?.user])
 
 
-  const handleSubmit = async (e) => {
-
+  const handleSubmit = async () => {
     try {
 
       const {data} =  await axios.put('http://localhost:5000/api/Profile',{
@@ -75,7 +74,7 @@ function Profile() {
               <input className="profile_input" type="email" value={Email} placeholder="E-mail Address" onChange={(e) => {
                 setEmail(e.target.value)
               }} disabled/>
-              <input className="profile_input" id="input_passwd" value={password} type="password" name="password" placeholder="Password" onChange={(e) => {
+              <input className="profile_input" id="input_passwd" value={password} type="password" placeholder="Password" onChange={(e) => {
                 setpassword(e.target.value)
               }} />
               <input className="profile_input" type="number" maxLength="10" value={phone} placeholder="Phone Number" onChange={(e) => {
