@@ -95,3 +95,34 @@
     border: none;
     font-size: larger;
 }
+.table
+{
+    border-collapse: collapse;
+    width: 100%;
+}
+.table, .order_td 
+{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.table, .order_th
+{
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+.order_thead
+{
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04AA6D;
+    color: white;
+}
+.order_td:hover
+{
+    background-color: #ddd;
+}
+.border_shadow
+{
+    margin-left: 30px;
+}

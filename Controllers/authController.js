@@ -1,4 +1,5 @@
 import userModel from "../Models/user.js";
+import orderModel from "../Models/orders.js";
 import { comparePassword, hashPassword } from "../Helpers/authHelper.js";
 import emailValidator from "email-validator";
 import  Jwt  from "jsonwebtoken";
@@ -238,10 +239,7 @@ export const updateProfileController = async (req, res) => {
 // get orders
 export const getOrdersController = async (req, res) => {
   try {
-    const orders = await orderModel
-      .find({ buyer: req.user._id })
-      .populate("products", "-photo")
-      .populate("buyer", "name");
+    const orders = await orderModel.find({ buyer: req.user._id }).populate("products", "-photo").populate("buyer", "name");
     res.json(orders);
   } catch (error) {
     console.log(error);

@@ -37,30 +37,29 @@ function Order() {
         
         <div className='font_user'>
             <h2 className='user_m_sub1'>Orders</h2>
-        </div>
         {
           orders?.map((order, index) => {
             return(
-              <div className="border shadow">
+              <div className="border_shadow">
               <table className="table">
-                <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Buyer</th>
-                    <th scope="col"> date</th>
-                    <th scope="col">Payment</th>
-                    <th scope="col">Quantity</th>
+                <thead className='order_thead'>
+                  <tr className='order_tr'>
+                    <th className='order_th' scope="col">No.</th>
+                    <th className='order_th' scope="col">Status</th>
+                    <th className='order_th' scope="col">Buyer</th>
+                    <th className='order_th' scope="col">Date</th>
+                    <th className='order_th' scope="col">Payment</th>
+                    <th className='order_th' scope="col">Quantity</th>
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>{index + 1}</td>
-                    <td>{order?.status}</td>
-                    <td>{order?.buyer?.name}</td>
-                    <td>{moment(order?.createAt).fromNow()}</td>
-                    <td>{order?.payment.success ? "Success" : "Failed"}</td>
-                    <td>{order?.products?.length}</td>
+                  <tr className='order_tr'>
+                    <td className='order_td'>{index + 1}</td>
+                    <td className='order_td'>{order?.status}</td>
+                    <td className='order_td'>{order?.buyer?._id}</td>
+                    <td className='order_td'>{moment(order?.createAt).fromNow()}</td>
+                    <td className='order_td'>{order?.payment?.success ? "Success" : "Failed"}</td>
+                    <td className='order_td'>{order?.products?.length}</td>
                   </tr>
                 </tbody>
               </table>
@@ -68,9 +67,7 @@ function Order() {
             )
           })
         }
-
-
-
+        </div>
 
 
       </div>
