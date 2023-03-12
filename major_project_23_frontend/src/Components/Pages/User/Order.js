@@ -1,6 +1,7 @@
 import React,{useState, useEffect} from 'react'
 import Layout from '../../Layouts/Layout/Layout'
 import "./Dashboard.css"
+import "../Cart/Cart.css";
 import Usermenu from "../../Layouts/Usermenu/Usermenu"
 import { useAuth } from '../../Context/auth'
 import moment from 'moment'
@@ -41,6 +42,7 @@ function Order() {
           orders?.map((order, index) => {
             return(
               <div className="border_shadow">
+
               <table className="table">
                 <thead className='order_thead'>
                   <tr className='order_tr'>
@@ -63,11 +65,27 @@ function Order() {
                   </tr>
                 </tbody>
               </table>
+              <div>
+                {orders?.products?.map((p,i) => (
+                <div className="cart_product">
+                  <div className="cart_pro_1">
+                      <img src={`http://localhost:5000/api/product/Product-photo/${p._id}`} className="cart_img" alt={p.name}/>
+                  </div>
+                  <div className="cart_pro_2">
+                    <p>{p.name}</p>
+                    <p>Price : ₹{p.price}</p>
+                  </div>
+                </div>
+              ))}
+              </div>
+
             </div>
-            )
-          })
-        }
+
+            )})}
+
         </div>
+
+
 
 
       </div>

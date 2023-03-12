@@ -26,6 +26,8 @@ const Products = lazy(() => import('./Components/Pages/Admin/Products'));
 const Updateproduct = lazy(() => import('./Components/Pages/Admin/Updateproduct'))
 const Productdetails = lazy(() => import('./Components/Pages/Productdetails/Productdetails'))
 const Categories = lazy(() => import('./Components/Pages/Category/Categories'))
+const Orders = lazy(() => import('./Components/Pages/Admin/Orders'))
+
 
 function App() {
   return (
@@ -46,6 +48,7 @@ function App() {
               <Route  exact path='admin/Products' element={<Products />}/>   
               <Route  exact path='admin/Products/:slug' element={<Updateproduct />}/>   
               <Route  exact path='admin/Users' element={<Users />}/>   
+              <Route  exact path='admin/Orders' element={<Orders />}/>   
           </Route>   
           <Route  exact path='/About' element={<About />}/>   
           <Route  exact path='/Contact' element={<Contact />}/>   
