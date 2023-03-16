@@ -21,7 +21,7 @@ function Category() {
   const getPrductsByCat = async () => {
     try {
       const { data } = await axios.get(
-        `http://localhost:5000/api/product/Product-category/${params.slug}`
+        `https://persian-blue-goose-gear.cyclic.app/api/product/Product-category/${params.slug}`
       );
       setProds(data?.products);
       setCategory(data?.category);
@@ -37,7 +37,7 @@ function Category() {
     <div className="div_sub2">
     {prods?.map((p) => (
         <div className="card" style={{ width: "18rem" }}>
-          <img src={`http://localhost:5000/api/product/Product-photo/${p._id}`} className="card_img" alt={p.name}/>
+          <img src={`https://persian-blue-goose-gear.cyclic.app/api/product/Product-photo/${p._id}`} className="card_img" alt={p.name}/>
           <div className="card_body">
             <h4 className="card_title">{p.name}</h4>
             <p  className="card_des">{p.description.substring(0,30)}...</p>

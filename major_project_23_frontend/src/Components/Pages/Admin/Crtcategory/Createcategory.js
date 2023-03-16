@@ -21,7 +21,7 @@ function Createcategory() {
   const handleSubmit = async(e) => {
     try {
       e.preventDefault();
-      const {data} = await axios.post('http://localhost:5000/api/category/Create-category',{name})
+      const {data} = await axios.post('https://persian-blue-goose-gear.cyclic.app/api/category/Create-category',{name})
       if (data?.success) {
         toast.success(`${name} category is created`);
         getcategories();
@@ -38,7 +38,7 @@ function Createcategory() {
 // display category
   const getcategories = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/category/get-category");
+      const { data } = await axios.get("https://persian-blue-goose-gear.cyclic.app/api/category/get-category");
       if (data.success) {
         setcategories(data.Category);
       }
@@ -53,7 +53,7 @@ function Createcategory() {
   const handleUpdate = async(e) => {
     try {
       e.preventDefault();
-      const {data} = await axios.put(`http://localhost:5000/api/category/Update-category/${selected._id}`, {name:updatedName})
+      const {data} = await axios.put(`https://persian-blue-goose-gear.cyclic.app/api/category/Update-category/${selected._id}`, {name:updatedName})
       if (data.success) {
         toast.success(`${name} is Updated successfully`) 
         setselected(null);
@@ -73,7 +73,7 @@ function Createcategory() {
   //delete category
   const handleDelete = async(pId) => {
     try {
-      const {data} = await axios.delete(`http://localhost:5000/api/category/Delete-category/${pId}`)
+      const {data} = await axios.delete(`https://persian-blue-goose-gear.cyclic.app/api/category/Delete-category/${pId}`)
       if (data.success) {
         toast.success(`Category is Deleted successfully`) 
         getcategories();

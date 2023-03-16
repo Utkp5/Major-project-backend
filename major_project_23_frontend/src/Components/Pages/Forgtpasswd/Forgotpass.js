@@ -19,7 +19,7 @@ function Forgotpass() {
 
     try {
       
-      const res = await axios.post('http://localhost:5000/api/Forgotpassword',{
+      const res = await axios.post('https://persian-blue-goose-gear.cyclic.app/api/Forgotpassword',{
         Email,
         answer,
         newPassword

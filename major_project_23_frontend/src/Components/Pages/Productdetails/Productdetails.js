@@ -22,7 +22,7 @@ function Productdetails() {
   //getProduct
   const getProduct = async () => {
     try {
-      const { data } = await axios.get(`http://localhost:5000/api/product/Single-product/${params.slug}`);
+      const { data } = await axios.get(`https://persian-blue-goose-gear.cyclic.app/api/product/Single-product/${params.slug}`);
       setProduct(data?.product);
       getSimilarProduct(data?.product._id, data?.product.category._id);
     } catch (error) {
@@ -34,7 +34,7 @@ function Productdetails() {
   //get similar product
   const getSimilarProduct = async (pid, cid) => {
     try {
-      const { data } = await axios.get(`http://localhost:5000/api/product/Related-product/${pid}/${cid}`);
+      const { data } = await axios.get(`https://persian-blue-goose-gear.cyclic.app/api/product/Related-product/${pid}/${cid}`);
       setRelatedProducts(data?.products);
     } catch (error) {
       console.log(error);
@@ -48,7 +48,7 @@ function Productdetails() {
         <div className="pd_container">
 
         <div className="pd_div1">
-          <img src={`http://localhost:5000/api/product/Product-photo/${product._id}`} className="pd_card_img" alt={product.name}/>
+          <img src={`https://persian-blue-goose-gear.cyclic.app/api/product/Product-photo/${product._id}`} className="pd_card_img" alt={product.name}/>
         </div>
 
         <div className="pd_div2">
@@ -72,7 +72,7 @@ function Productdetails() {
         <div className="pd_divrp">
             {relatedProducts?.map((p) => (
                 <div className="card" style={{ width: "18rem" }}>
-                  <img src={`http://localhost:5000/api/product/Product-photo/${p._id}`} className="card_img" alt={p.name}/>
+                  <img src={`https://persian-blue-goose-gear.cyclic.app/api/product/Product-photo/${p._id}`} className="card_img" alt={p.name}/>
                   <div className="card_body">
                     <h4 className="card_title">{p.name}</h4>
                     <p  className="card_des">{p.description}</p>

@@ -47,7 +47,7 @@ function Cart() {
   //payment gateway
   const getToken = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/product/Braintree/token");
+      const { data } = await axios.get("https://persian-blue-goose-gear.cyclic.app/api/product/Braintree/token");
       setClientToken(data?.clientToken);
     } catch (error) {
       console.log(error);
@@ -64,7 +64,7 @@ function Cart() {
     try {
       setLoading(true);
       const { nonce } = await instance.requestPaymentMethod();
-      const { data } = await axios.post("http://localhost:5000/api/product/Braintree/payment", {
+      const { data } = await axios.post("https://persian-blue-goose-gear.cyclic.app/api/product/Braintree/payment", {
         nonce,
         cart,
       });
@@ -101,7 +101,7 @@ const url = 'https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg
             {cart?.map((p) => (
               <div className="cart_product">
                 <div className="cart_pro_1">
-                  <img src={`http://localhost:5000/api/product/Product-photo/${p._id}`} className="cart_img" alt={p.name}/>
+                  <img src={`https://persian-blue-goose-gear.cyclic.app/api/product/Product-photo/${p._id}`} className="cart_img" alt={p.name}/>
                 </div>
                 <div className="cart_pro_2">
                   <p>{p.name}</p>

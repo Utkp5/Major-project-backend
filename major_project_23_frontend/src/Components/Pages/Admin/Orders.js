@@ -19,7 +19,7 @@ function Orders() {
       const [auth, setAuth] = useAuth();
       const getOrders = async () => {
         try {
-          const { data } = await axios.get("http://localhost:5000/api/All-orders");
+          const { data } = await axios.get("https://persian-blue-goose-gear.cyclic.app/api/All-orders");
           setOrders(data);
         } catch (error) {
           console.log(error);
@@ -32,7 +32,7 @@ function Orders() {
     
       const handleChange = async (orderId, value) => {
         try {
-          const { data } = await axios.put(`http://localhost:5000/api/Order-status/${orderId}`, {
+          const { data } = await axios.put(`https://persian-blue-goose-gear.cyclic.app/api/Order-status/${orderId}`, {
             status: value,
           });
           getOrders();
@@ -89,7 +89,7 @@ function Orders() {
                       {o?.products?.map((p, i) => (
                         <div style={{margin:"20px 20px", padding:"7px 7px"}} key={p._id}>
                           <div className="card_body">
-                            <img src={`http://localhost:5000/api/product/Product-photo/${p._id}`} style={{width:"10vw"}} alt={p.name}/>
+                            <img src={`https://persian-blue-goose-gear.cyclic.app/api/product/Product-photo/${p._id}`} style={{width:"10vw"}} alt={p.name}/>
                             <div >
                             <p>{p.name}</p>
                             <p>Price : {p.price}</p>

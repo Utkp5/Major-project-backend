@@ -30,7 +30,7 @@ function Profile() {
   const handleSubmit = async () => {
     try {
 
-      const {data} =  await axios.put('http://localhost:5000/api/Profile',{
+      const {data} =  await axios.put('https://persian-blue-goose-gear.cyclic.app/api/Profile',{
           firstName,
           Email,
           password,

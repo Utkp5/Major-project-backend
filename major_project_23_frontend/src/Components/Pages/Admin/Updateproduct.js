@@ -28,7 +28,7 @@ function Updateproduct() {
   //get single product
   const getSingleProduct = async () => {
     try {
-        const {data} = await axios.get(`http://localhost:5000/api/product/Single-product/${params.slug}`)
+        const {data} = await axios.get(`https://persian-blue-goose-gear.cyclic.app/api/product/Single-product/${params.slug}`)
         setname(data.product.name);
         setid(data.product._id);
         setdescription(data.product.description);
@@ -48,7 +48,7 @@ function Updateproduct() {
   // display category
   const getcategories = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/category/get-category");
+      const { data } = await axios.get("https://persian-blue-goose-gear.cyclic.app/api/category/get-category");
       if (data?.success) {
         setcategories(data?.Category);
       }
@@ -73,7 +73,7 @@ function Updateproduct() {
       productData.append("quantity", quantity);
       photo && productData.append("photo", photo);
       productData.append("category", category);
-      const {data} = axios.put(`http://localhost:5000/api/product/Update-product/${id}`, productData);
+      const {data} = axios.put(`https://persian-blue-goose-gear.cyclic.app/api/product/Update-product/${id}`, productData);
       if (data.success) {
           toast.success('Product updated successfully')
           navigate('/Dashboard/admin/products')
@@ -93,7 +93,7 @@ function Updateproduct() {
     try {
         let answer = window.prompt('Are you sure you wnat to delete this product');
         if(!answer) return;
-        const {data} = axios.delete(`http://localhost:5000/api/product/Delete-product/${id}`)
+        const {data} = axios.delete(`https://persian-blue-goose-gear.cyclic.app/api/product/Delete-product/${id}`)
         toast.success('Product deleted successfully');
         navigate('/Dashboard/admin/products')
     } catch (error) {
@@ -133,7 +133,7 @@ function Updateproduct() {
             {photo ? (
               <img src={URL.createObjectURL(photo)} alt="product-photo" height={'200px'} style={{height:"200px", marginLeft:"30px"}}/>
                ) : (
-               <img src={`http://localhost:5000/api/product/Product-photo/${id}`} alt="product-photo" height={'200px'} style={{height:"200px", marginLeft:"30px"}}/>
+               <img src={`https://persian-blue-goose-gear.cyclic.app/api/product/Product-photo/${id}`} alt="product-photo" height={'200px'} style={{height:"200px", marginLeft:"30px"}}/>
                )
             }
             </div>

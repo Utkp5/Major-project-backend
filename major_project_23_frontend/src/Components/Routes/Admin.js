@@ -12,7 +12,7 @@ function Admin() {
 
     useEffect(() => {
         const authCheck = async () => {
-            const res = await axios.get('http://localhost:5000/api/admin-auth');
+            const res = await axios.get('https://persian-blue-goose-gear.cyclic.app/api/admin-auth');
             if (res.data.ok) {
                 setok(true)
             }

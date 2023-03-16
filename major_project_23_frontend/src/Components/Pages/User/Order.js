@@ -15,7 +15,7 @@ function Order() {
 
     const getOrders = async () => {
       try {
-        const { data } = await axios.get("http://localhost:5000/api/Orders");
+        const { data } = await axios.get("https://persian-blue-goose-gear.cyclic.app/api/Orders");
         setOrders(data);
       } catch (error) {
         console.log(error);
@@ -69,7 +69,7 @@ function Order() {
                 {orders?.products?.map((p,i) => (
                 <div className="cart_product">
                   <div className="cart_pro_1">
-                      <img src={`http://localhost:5000/api/product/Product-photo/${p._id}`} className="cart_img" alt={p.name}/>
+                      <img src={`https://persian-blue-goose-gear.cyclic.app/api/product/Product-photo/${p._id}`} className="cart_img" alt={p.name}/>
                   </div>
                   <div className="cart_pro_2">
                     <p>{p.name}</p>

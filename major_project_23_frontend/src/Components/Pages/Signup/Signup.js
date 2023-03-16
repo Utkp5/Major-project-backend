@@ -27,7 +27,7 @@ function Signup() {
 
       const user = {firstName,lastName,Email,password,phone,address,answer};
 
-      const res =  await axios.post('http://localhost:5000/api/Register',user)
+      const res =  await axios.post('https://persian-blue-goose-gear.cyclic.app/api/Register',user)
       if(res && res.data.success) 
       {
         toast.success(res.data && res.data.message);

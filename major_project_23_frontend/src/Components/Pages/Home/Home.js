@@ -24,7 +24,7 @@ function Home() {
   //display category
   const getallcategories = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/category/get-category");
+      const { data } = await axios.get("https://persian-blue-goose-gear.cyclic.app/api/category/get-category");
       if (data.success) {
         setcategories(data.Category);
       }
@@ -44,7 +44,7 @@ function Home() {
   //display products
   const getProducts = async () => {
     try {
-        const {data} = await axios.get(`http://localhost:5000/api/product/Get-product/`);
+        const {data} = await axios.get(`https://persian-blue-goose-gear.cyclic.app/api/product/Get-product/`);
         setprods(data.getproducts);
     } catch (error) {
         console.log(error);
@@ -72,7 +72,7 @@ useEffect(() => {
   //get filterd product
   const filterProduct = async () => {
     try {
-      const { data } = await axios.post("http://localhost:5000/api/product/Product-filter", {
+      const { data } = await axios.post("https://persian-blue-goose-gear.cyclic.app/api/product/Product-filter", {
         checked,
         radio,
       });
@@ -91,7 +91,7 @@ useEffect(() => {
   //get total 
   const getTotal = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/product/product-count");
+      const { data } = await axios.get("https://persian-blue-goose-gear.cyclic.app/api/product/product-count");
       setTotal(data?.total);
     } catch (error) {
       console.log(error);
@@ -135,7 +135,7 @@ useEffect(() => {
             <div className="div_sub2">
             {prods?.map((p) => (
                 <div className="card" style={{ width: "18rem" }}>
-                  <img src={`http://localhost:5000/api/product/Product-photo/${p._id}`} className="card_img" alt={p.name}/>
+                  <img src={`https://persian-blue-goose-gear.cyclic.app/api/product/Product-photo/${p._id}`} className="card_img" alt={p.name}/>
                   <div className="card_body">
                     <h4 className="card_title">{p.name}</h4>
                     <p  className="card_des">{p.description.substring(0,30)}...</p>

@@ -27,7 +27,7 @@ function Createproduct() {
   // display category
   const getcategories = async () => {
     try {
-      const { data } = await axios.get("http://localhost:5000/api/category/get-category");
+      const { data } = await axios.get("https://persian-blue-goose-gear.cyclic.app/api/category/get-category");
       if (data?.success) {
         setcategories(data?.Category);
       }
@@ -52,7 +52,7 @@ function Createproduct() {
       productData.append("quantity", quantity);
       productData.append("photo", photo);
       productData.append("category", category);
-      const {data} = axios.post("http://localhost:5000/api/product/Create-product", productData);
+      const {data} = axios.post("https://persian-blue-goose-gear.cyclic.app/api/product/Create-product", productData);
       if (data.success) {
         toast.success('product created successfully')
         navigate('/Dashboard/admin/products')
