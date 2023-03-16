@@ -1,0 +1,33 @@
+.row
+{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    margin: 115px 0;
+}
+.row_div
+{
+
+}
+.cat_btn
+{
+    font-size: xx-large;
+    text-decoration: none;
+    padding: -1px 33px;
+    padding: 30px 30px;
+    color: floralwhite;
+    background: black;
+    cursor: pointer;
+    border-radius: 4px;
+    box-shadow: 3px 4px 3px 1px dimgrey;
+}
+.cat_btn:hover
+{
+     background-color: whitesmoke;
+     color: black;
+}
+.cat_btn:active
+{
+    background-color: darkorange;
+    color: aliceblue;
+}

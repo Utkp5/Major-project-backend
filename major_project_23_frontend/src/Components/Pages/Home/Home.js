@@ -6,6 +6,7 @@ import axios from "axios";
 import { Prices } from "../../Prices";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../../Context/cart";
+import Slider from "../Slider";
 
 function Home() {
  
@@ -104,7 +105,9 @@ useEffect(() => {
 
   return (
     <Layout title={"Hidden Brands - Shop now"}>
+    <Slider />
     <div className="parent">
+
 
          <div className="div1">
             <h4 className="home_h4">Filter by products</h4>

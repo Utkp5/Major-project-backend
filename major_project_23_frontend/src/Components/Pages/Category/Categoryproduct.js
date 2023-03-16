@@ -2,6 +2,7 @@ import React from 'react'
 import { useState, useEffect } from 'react';
 import Layout from '../../Layouts/Layout/Layout'
 import { useParams, useNavigate } from "react-router-dom";
+import { useCart } from '../../Context/cart';
 import axios from 'axios';
 import "../Home/Home.css";
 import "./Category.css";
@@ -12,6 +13,7 @@ function Category() {
   const navigate = useNavigate();
   const [prods, setProds] = useState([]);
   const [category, setCategory] = useState([]);
+  const [cart,setCart] = useCart();
 
   useEffect(() => {
     if (params?.slug) getPrductsByCat();
@@ -41,7 +43,7 @@ function Category() {
             <p  className="card_des">{p.description.substring(0,30)}...</p>
             <p  className="card_price">₹&nbsp;{p.price}</p>
             <button className="card_btn" onClick={() => navigate(`/product/${p.slug}`)}>More details</button>
-            <button className="card_btn card_bt">Add to cart</button>
+            <button className="card_btn card_bt" onClick={() => setCart([...cart,p])}>Add to cart</button>
           </div>
         </div>
     ))}

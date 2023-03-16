@@ -3,7 +3,7 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 import cors from 'cors'
 import morgan  from "morgan";
-
+import path  from "path";
 
 
 
@@ -19,7 +19,7 @@ app.use(cors({origin: true, credentials: true}));
 app.use(morgan("dev"));
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ limit: "100mb", extended: false }));
-
+app.use(express.static(path.join(__dirname, './major_project_2023/build')))
 
 
 
@@ -34,6 +34,11 @@ dbConnect();
 app.get("/", function (req, res) {
   return res.status(200).send("Major Project working fine...");
 });
+
+app.use("*", function (req,res){
+  return res.sendFile(path.join(__dirname, './major_project_2023/build/index.html'))
+})
+
 
 
 
