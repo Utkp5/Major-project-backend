@@ -3,7 +3,8 @@ const app = express();
 const PORT = process.env.PORT || 5000;
 import cors from 'cors'
 import morgan  from "morgan";
-import path  from "path";
+import path from 'path';
+const __dirname = path.resolve();
 
 
 
