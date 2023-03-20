@@ -38,4 +38,5 @@ router.get("/All-orders", requireSignIn, isAdmin, getAllOrdersController);
 
 // order status update
 router.put("/Order-status/:orderId", requireSignIn, isAdmin, orderStatusController);
+
 export default router;

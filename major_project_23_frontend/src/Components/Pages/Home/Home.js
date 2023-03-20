@@ -157,37 +157,3 @@ useEffect(() => {
 
 export default Home;
 
-//   <div className="load_div">
-//   {prods && prods.length < total && (
-//    <button
-//      className="load_btn"
-//      onClick={(e) => {
-//        e.preventDefault();
-//        setPage(page + 1);
-//      }}
-//    >
-//      {loading ? "Loading ..." : "Loadmore"}
-//    </button>
-//  )}
-//   </div>
-
-
-
-    // useEffect(() => {
-    //   if (page === 1) return;
-    //   loadMore();
-    //   // eslint-disable-next-line
-    // }, [page]);
-  
-    // //load more
-    // const loadMore = async () => {
-    //   try {
-    //     setLoading(true);
-    //     const { data } = await axios.get(`http://localhost:5000/api/product/Product-list/${page}`);
-    //     setLoading(false);
-    //     setprods([...prods, ...data?.products]);
-    //   } catch (error) {
-    //     console.log(error);
-    //     setLoading(false);
-    //   }
-    // };
