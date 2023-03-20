@@ -37,7 +37,7 @@ app.get("/", function (req, res) {
 });
 
 app.use("*", function (req,res){
-  return res.sendFile(path.join(__dirname, './major_project_2023/build/index.html'))
+  return res.sendFile(path.join(__dirname, './major_project_23_frontend/build/index.html'))
 })
 
 
