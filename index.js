@@ -20,7 +20,7 @@ app.use(cors({origin: true, credentials: true}));
 app.use(morgan("dev"));
 app.use(express.json({ limit: "100mb" }));
 app.use(express.urlencoded({ limit: "100mb", extended: false }));
-app.use(express.static(path.join(__dirname, './major_project_2023/build')))
+app.use(express.static(path.join(__dirname, './major_project_23_frontend/build')))
 
 
 
